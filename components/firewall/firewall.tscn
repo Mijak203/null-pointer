@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5rrantbnpih0"]
+[gd_scene load_steps=4 format=3 uid="uid://c5rrantbnpih0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3enf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3enf"]
+transparency = 1
+albedo_color = Color(0.7019608, 0.15686275, 0.1254902, 0.4862745)
+
 [sub_resource type="BoxMesh" id="BoxMesh_6xkbf"]
+material = SubResource("StandardMaterial3D_y3enf")
 
 [node name="Firewall" type="StaticBody3D"]
 collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_y3enf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_6xkbf")
