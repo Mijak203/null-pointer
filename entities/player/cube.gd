@@ -46,6 +46,7 @@ var height_lying: float = 1.0
 signal gap_detected_ahead(gap_position: Vector3)
 signal player_won_level
 signal teleport
+signal step_on_plate
 # --- FLAGS ---
 var rolling: bool = false
 var is_level_won = false
@@ -467,6 +468,7 @@ func roll(dir: Vector3) -> void:
 	# 6. Apply standard gravity (in case we are floating)
 	await _apply_gravity()
 	check_for_portal()
+	check_for_plate()
 	# 7. Check Win/Lose conditions
 	if await _check_win(): return
 	if _check_loss(): return
@@ -480,7 +482,6 @@ func check_for_portal():
 	var space = get_world_3d().direct_space_state
 	var fall_ray_start = global_position + Vector3.UP * (unit_size * 2) 
 	var fall_ray_end = global_position + Vector3.DOWN * unit_size 
-	# 7. Check Win/Lose conditions
 	var teleport_collision_mask: int = 8
 	var teleport_query = PhysicsRayQueryParameters3D.create(
 		fall_ray_start,
@@ -494,3 +495,25 @@ func check_for_portal():
 	#print("Win Check:", win_check)
 	if teleport_check and current_state == State.STANDING:
 		teleport.emit(teleport_check.collider.name)
+
+
+func check_for_plate():
+	
+	var space = get_world_3d().direct_space_state
+	var fall_ray_start = global_position + Vector3.UP * (unit_size * 2) 
+	var fall_ray_end = global_position + Vector3.DOWN * unit_size 
+	var plate_collision_mask: int = 32
+	var plate_query = PhysicsRayQueryParameters3D.create(
+		fall_ray_start,
+		fall_ray_end,
+		plate_collision_mask, 
+		[self]
+	)
+	plate_query.collide_with_areas = true
+
+	var plate_check = space.intersect_ray(plate_query)
+	#print("Win Check:", win_check)
+	if plate_check and current_state == State.STANDING:
+		print("cos")
+		step_on_plate.emit()
+	
