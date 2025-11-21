@@ -1,13 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5rrantbnpih0"]
+[gd_scene load_steps=8 format=3 uid="uid://c5rrantbnpih0"]
+
+[ext_resource type="Material" uid="uid://4i4esltiyiqq" path="res://components/firewall/firewall.tres" id="1_6xkbf"]
+[ext_resource type="Shader" uid="uid://b0wdlh4jy0ken" path="res://components/firewall/firewall.gdshader" id="2_31rka"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3enf"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3enf"]
-transparency = 1
-albedo_color = Color(0.7019608, 0.15686275, 0.1254902, 0.4862745)
-
 [sub_resource type="BoxMesh" id="BoxMesh_6xkbf"]
-material = SubResource("StandardMaterial3D_y3enf")
+material = ExtResource("1_6xkbf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4glmr"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2rspe"]
+noise = SubResource("FastNoiseLite_4glmr")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocdb3"]
+render_priority = 0
+shader = ExtResource("2_31rka")
+shader_parameter/base_color = Color(1, 0.1, 0.1, 0.35)
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_2rspe")
+shader_parameter/scroll_speed = 0.3
+shader_parameter/glitch_intensity = 0.25
+shader_parameter/scanline_strength = 0.1
+shader_parameter/pulse_speed = 3.0
 
 [node name="Firewall" type="StaticBody3D"]
 collision_layer = 16
@@ -20,3 +36,4 @@ shape = SubResource("BoxShape3D_y3enf")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_6xkbf")
+surface_material_override/0 = SubResource("ShaderMaterial_ocdb3")
