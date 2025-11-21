@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=18 format=3 uid="uid://cdh6sracst7yp"]
 
-[ext_resource type="PackedScene" path="res://ui/ui.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="1_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
 [ext_resource type="Shader" path="res://res/sky.gdshader" id="2_4w0vo"]
-[ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/mesh_lib.tres" id="3_5yd65"]
+[ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/meshes/mesh_lib.tres" id="3_5yd65"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 
