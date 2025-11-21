@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmm672nielw7e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egwdh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egwdh"]
+albedo_color = Color(0.9246848, 0.52256864, 1.347661e-06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lhwdx"]
+material = SubResource("StandardMaterial3D_egwdh")
+
+[node name="Goal_area" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_egwdh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lhwdx")
