@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=6 format=3 uid="uid://cdh6sracst7yp"]
 
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbm7m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,3 +28,5 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
+
+[node name="CameraRig" parent="." instance=ExtResource("2_3wh16")]

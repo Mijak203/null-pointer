@@ -8,7 +8,7 @@ albedo_color = Color(0.9246848, 0.52256864, 1.347661e-06, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_lhwdx"]
 material = SubResource("StandardMaterial3D_egwdh")
 
-[node name="Goal_area" type="Area3D"]
+[node name="GoalArea" type="Area3D"]
 collision_layer = 4
 collision_mask = 0
 
