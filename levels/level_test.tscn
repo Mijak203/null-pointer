@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=19 format=3 uid="uid://cdh6sracst7yp"]
 
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="1_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
 [ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="2_4w0vo"]
-[ext_resource type="MeshLibrary" path="res://res/meshes/mesh_lib.tres" id="3_5yd65"]
+[ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/meshes/mesh_lib.tres" id="3_5yd65"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 
@@ -64,11 +64,16 @@ sky_material = SubResource("ShaderMaterial_gcim3")
 background_mode = 2
 sky = SubResource("Sky_iho50")
 tonemap_mode = 2
-glow_enabled = true
+glow_intensity = 0.0
 adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_test" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_iho50")]
+
+[node name="Cube" parent="." instance=ExtResource("4_eu8vo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
 
 [node name="Portal2" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("1_y0s4v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -1.5)
@@ -78,13 +83,13 @@ teleport_destination = NodePath("../Portal")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 2.5)
 teleport_destination = NodePath("../Portal2")
 
-[node name="UI" parent="." instance=ExtResource("1_iho50")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3wh16")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0, 0, 0)
+light_color = Color(1, 1, 0.7176471, 1)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -96,8 +101,5 @@ data = {
 
 [node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_3wh16")]
 target = NodePath("../Cube")
-
-[node name="Cube" parent="." instance=ExtResource("4_eu8vo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
 
 [node name="WaterPlane" parent="." instance=ExtResource("6_y0s4v")]

@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=19 format=4 uid="uid://cb6wr2n4t5x7c"]
+[gd_resource type="MeshLibrary" load_steps=19 format=4 uid="uid://8wcehwr3tf7f"]
 
 [ext_resource type="Texture2D" uid="uid://d0vnl1muppxqa" path="res://res/objects/grassBlock_grassBlock.png" id="1_d0g42"]
 [ext_resource type="Texture2D" uid="uid://bb3h2v4aoxo3p" path="res://res/objects/sandBlock_sandBlock.png" id="2_c16oj"]
