@@ -2,8 +2,7 @@ extends Node
 
 # A list of all level scenes
 var levels = [
-	"res://scenes/world.tscn",
-	"res://scenes/world_2.tscn"
+	"res://levels/level_test.tscn"
 ]
 
 # Stores which level is currently loaded
