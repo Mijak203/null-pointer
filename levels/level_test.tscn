@@ -1,25 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=18 format=3 uid="uid://cdh6sracst7yp"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbm7m"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="1_y0s4v"]
+[ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="2_4w0vo"]
+[ext_resource type="MeshLibrary" path="res://res/meshes/mesh_lib.tres" id="3_5yd65"]
+[ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
+[ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
+
+[sub_resource type="Curve" id="Curve_y0s4v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eu8vo"]
+curve = SubResource("Curve_y0s4v")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y0s4v"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tt56a"]
+noise = SubResource("FastNoiseLite_y0s4v")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tt56a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vac4a"]
+noise = SubResource("FastNoiseLite_tt56a")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vac4a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cd850"]
+noise = SubResource("FastNoiseLite_vac4a")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcim3"]
+shader = ExtResource("2_4w0vo")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_vac4a")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_tt56a")
+shader_parameter/cloud_curves = SubResource("CurveTexture_eu8vo")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.5
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = Color(0.973535, 0.9735351, 0.973535, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_cd850")
+shader_parameter/high_clouds_density = 0.20000000298024
+shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
+shader_parameter/bottom_color = Color(0, 0.32941177, 0.96862745, 1)
+shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
+shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
+shader_parameter/astro_scale = 5.000000074506
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
 
 [sub_resource type="Sky" id="Sky_iho50"]
-sky_material = SubResource("ProceduralSkyMaterial_rbm7m")
+sky_material = SubResource("ShaderMaterial_gcim3")
 
 [sub_resource type="Environment" id="Environment_3wh16"]
 background_mode = 2
 sky = SubResource("Sky_iho50")
 tonemap_mode = 2
 glow_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 1.5
 
 [node name="Level_test" type="Node3D"]
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("1_y0s4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -1.5)
+teleport_destination = NodePath("../Portal")
+
+[node name="Portal" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("1_y0s4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 2.5)
+teleport_destination = NodePath("../Portal2")
+
+[node name="UI" parent="." instance=ExtResource("1_iho50")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3wh16")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0, 0, 0)
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_5yd65")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65527, 65533, 0, 0, 65535, 0, 65535, 65535, 0, 65534, 65535, 0, 65533, 65535, 0, 65533, 0, 0, 65532, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 65532, 65535, 0, 2, 0, 0, 3, 0, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 65533, 1, 0, 65532, 1, 0, 65531, 1, 0, 65530, 1, 0, 65530, 0, 0, 65531, 0, 0, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 65533, 65534, 0, 65532, 65534, 0, 65531, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 3, 65534, 0, 65532, 65533, 0, 65531, 65533, 0, 65533, 65533, 0, 4, 65534, 0, 4, 65535, 0, 65534, 65532, 0, 65533, 65532, 0, 65532, 65532, 0, 65532, 65531, 0, 65531, 65531, 0, 65533, 65531, 0, 65534, 65531, 0, 65535, 65531, 0, 0, 65531, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 65535, 65532, 0, 3, 65533, 0, 65531, 65532, 0, 4, 65533, 0, 3, 65532, 0, 1, 65531, 0, 2, 65531, 0, 3, 65531, 0, 4, 65531, 0, 4, 65532, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 4, 3, 0, 3, 3, 0, 5, 0, 0, 4, 4, 0, 4, 5, 0, 3, 5, 0, 3, 4, 0, 2, 4, 0, 2, 3, 0, 2, 2, 0, 1, 2, 0, 3, 2, 0, 1, 3, 0, 0, 2, 0, 65535, 2, 0, 65534, 2, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65533, 3, 0, 65533, 2, 0, 65532, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 3, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0, 65532, 4, 0, 65533, 4, 0, 65534, 4, 0, 2, 5, 0, 1, 5, 0, 0, 5, 0, 65535, 5, 0, 65534, 5, 0, 65533, 5, 0, 65532, 5, 0, 65531, 5, 0, 65530, 5, 0, 65529, 5, 0, 65531, 4, 0, 65530, 4, 0, 65531, 3, 0, 65530, 3, 0, 65529, 4, 0, 65531, 65535, 0, 65529, 3, 0, 65529, 2, 0, 65529, 1, 0, 65529, 0, 0, 65530, 65535, 0, 65530, 65534, 0, 65529, 65535, 0, 65529, 65534, 0, 65529, 65533, 0, 65529, 65532, 0, 65529, 65531, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 65533, 0, 5, 65535, 0, 5, 65534, 0, 5, 65533, 0, 5, 65532, 0, 5, 65531, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 2, 65530, 0, 1, 65530, 0, 0, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65532, 65530, 0, 65531, 65530, 0, 65535, 65529, 0, 65534, 65529, 0, 65533, 65529, 0, 0, 65529, 0, 65528, 65533, 0, 65528, 65534, 0, 65527, 65534, 0, 65527, 65535, 0, 65528, 65535, 0, 65528, 65532, 0, 65528, 0, 0, 65528, 2, 0, 65528, 1, 0)
+}
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_3wh16")]
+target = NodePath("../Cube")
+
+[node name="Cube" parent="." instance=ExtResource("4_eu8vo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+
+[node name="WaterPlane" parent="." instance=ExtResource("6_y0s4v")]

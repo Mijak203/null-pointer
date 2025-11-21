@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://di70uixp7o0gy"]
+
+[ext_resource type="Script" uid="uid://psd1r2x4jhpm" path="res://entities/player/cube.gd" id="1_n4yxs"]
+[ext_resource type="Shader" uid="uid://dmxkdm3ajw3ug" path="res://entities/player/teleport.gdshader" id="2_lyv4h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lyv4h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7q2r"]
+render_priority = 0
+shader = ExtResource("2_lyv4h")
+shader_parameter/albedo = Color(1, 0.83668566, 0.71841645, 1)
+shader_parameter/roughness = 0.5
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_lyv4h")
+shader_parameter/progress = 0.0
+shader_parameter/edge_width = 0.1
+shader_parameter/emission_color = Color(2.9841065e-06, 0.6463917, 0.81045955, 1)
+shader_parameter/emission_strength = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_5rbgv"]
+material = SubResource("ShaderMaterial_i7q2r")
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ufek"]
+size = Vector3(1, 2, 1)
+
+[node name="Cube" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_n4yxs")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_5rbgv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_7ufek")
+
+[node name="GapDetector" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)

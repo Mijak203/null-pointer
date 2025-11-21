@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c267degr5g0w2"]
+
+[ext_resource type="Shader" uid="uid://2isb6r3353hr" path="res://res/water.gdshader" id="1_krja8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lfh5"]
+render_priority = 0
+shader = ExtResource("1_krja8")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 4.0
+shader_parameter/tile = Vector2(55, 55)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_bv1ka"]
+material = SubResource("ShaderMaterial_5lfh5")
+size = Vector2(200, 200)
+orientation = 1
+
+[node name="WaterPlane" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_bv1ka")
