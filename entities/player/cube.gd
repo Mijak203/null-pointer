@@ -493,5 +493,4 @@ func check_for_portal():
 	var teleport_check = space.intersect_ray(teleport_query)
 	#print("Win Check:", win_check)
 	if teleport_check and current_state == State.STANDING:
-		print(teleport_check.collider.name)
 		teleport.emit(teleport_check.collider.name)
