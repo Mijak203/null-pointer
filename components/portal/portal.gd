@@ -10,5 +10,3 @@ func on_teleport(colliderName):
 	if self.name ==colliderName:
 		var destination = self.teleport_destination.global_position
 		cube.global_position = destination
-		
-		

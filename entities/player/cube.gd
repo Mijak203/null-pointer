@@ -45,7 +45,7 @@ var height_lying: float = 1.0
 # --- SIGNALS ---
 signal gap_detected_ahead(gap_position: Vector3)
 signal player_won_level
-
+signal teleport
 # --- FLAGS ---
 var rolling: bool = false
 var is_level_won = false
@@ -466,9 +466,32 @@ func roll(dir: Vector3) -> void:
 	
 	# 6. Apply standard gravity (in case we are floating)
 	await _apply_gravity()
-	
+	check_for_portal()
 	# 7. Check Win/Lose conditions
 	if await _check_win(): return
 	if _check_loss(): return
 	
 	rolling = false
+
+
+
+
+func check_for_portal():
+	var space = get_world_3d().direct_space_state
+	var fall_ray_start = global_position + Vector3.UP * (unit_size * 2) 
+	var fall_ray_end = global_position + Vector3.DOWN * unit_size 
+	# 7. Check Win/Lose conditions
+	var teleport_collision_mask: int = 8
+	var teleport_query = PhysicsRayQueryParameters3D.create(
+		fall_ray_start,
+		fall_ray_end,
+		teleport_collision_mask, 
+		[self]
+	)
+	teleport_query.collide_with_areas = true
+
+	var teleport_check = space.intersect_ray(teleport_query)
+	#print("Win Check:", win_check)
+	if teleport_check and current_state == State.STANDING:
+		print(teleport_check.collider.name)
+		teleport.emit(teleport_check.collider.name)
