@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5qfi1rydf1wd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7j43v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7j43v"]
+material = SubResource("StandardMaterial3D_7j43v")
+size = Vector3(0.99, 0.99, 0.99)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8msx"]
+
+[node name="TestBlock" type="StaticBody3D"]
+collision_layer = 64
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7j43v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v8msx")
