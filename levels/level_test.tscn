@@ -1,8 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://cdh6sracst7yp"]
 
-[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" path="res://ui/ui.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="1_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
-[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="2_4w0vo"]
+[ext_resource type="Shader" path="res://res/sky.gdshader" id="2_4w0vo"]
 [ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/mesh_lib.tres" id="3_5yd65"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
@@ -63,6 +64,14 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_test" type="Node3D"]
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("1_y0s4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -1.5)
+teleport_destination = NodePath("../Portal")
+
+[node name="Portal" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("1_y0s4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 2.5)
+teleport_destination = NodePath("../Portal2")
 
 [node name="UI" parent="." instance=ExtResource("1_iho50")]
 
