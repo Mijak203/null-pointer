@@ -7,7 +7,6 @@ func _ready() -> void:
 	cube.teleport.connect(on_teleport)
 		
 func on_teleport(colliderName):
-	print("cos")
 	if self.name ==colliderName:
 		var destination = self.teleport_destination.global_position
 		cube.global_position = destination
