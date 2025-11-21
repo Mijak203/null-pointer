@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="null-pointer"
-run/main_scene="uid://btnpi1k17l3qh"
+run/main_scene="uid://cdh6sracst7yp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

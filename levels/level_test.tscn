@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=18 format=3 uid="uid://cdh6sracst7yp"]
 
-[ext_resource type="PackedScene" path="res://ui/ui.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="1_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
-[ext_resource type="Shader" path="res://res/sky.gdshader" id="2_4w0vo"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="2_4w0vo"]
 [ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/mesh_lib.tres" id="3_5yd65"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
@@ -16,10 +16,10 @@
 noise = SubResource("FastNoiseLite_y0s4v")
 seamless = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sop0g"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tt56a"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vac4a"]
-noise = SubResource("FastNoiseLite_sop0g")
+noise = SubResource("FastNoiseLite_tt56a")
 seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vac4a"]
@@ -35,7 +35,7 @@ shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_tt56a")
 shader_parameter/cloud_curves = SubResource("CurveTexture_eu8vo")
 shader_parameter/clouds_samples = 32
 shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_density = 0.5
 shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.035
 shader_parameter/clouds_light_color = Color(0.973535, 0.9735351, 0.973535, 1)
