@@ -1,23 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=17 format=3 uid="uid://cdh6sracst7yp"]
 
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="2_3wh16"]
 [ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="2_4w0vo"]
 [ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/mesh_lib.tres" id="3_5yd65"]
-[ext_resource type="PackedScene" path="res://entities/player/cube.tscn" id="4_eu8vo"]
+[ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
+[ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 
 [sub_resource type="CurveTexture" id="CurveTexture_eu8vo"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5yd65"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y0s4v"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y0s4v"]
-noise = SubResource("FastNoiseLite_5yd65")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tt56a"]
+noise = SubResource("FastNoiseLite_y0s4v")
 seamless = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_tt56a"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sop0g"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sop0g"]
-noise = SubResource("FastNoiseLite_tt56a")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vac4a"]
+noise = SubResource("FastNoiseLite_sop0g")
 seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vac4a"]
@@ -28,15 +29,15 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gcim3"]
 shader = ExtResource("2_4w0vo")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_sop0g")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_y0s4v")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_vac4a")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_tt56a")
 shader_parameter/cloud_curves = SubResource("CurveTexture_eu8vo")
 shader_parameter/clouds_samples = 32
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.40000000596048
 shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.035
-shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_light_color = Color(0.973535, 0.9735351, 0.973535, 1)
 shader_parameter/clouds_shadow_intensity = 1.0
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_cd850")
 shader_parameter/high_clouds_density = 0.20000000298024
@@ -58,6 +59,8 @@ background_mode = 2
 sky = SubResource("Sky_iho50")
 tonemap_mode = 2
 glow_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 1.5
 
 [node name="Level_test" type="Node3D"]
 
@@ -67,7 +70,7 @@ glow_enabled = true
 environment = SubResource("Environment_3wh16")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0, 0, 0)
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -82,3 +85,5 @@ target = NodePath("../Cube")
 
 [node name="Cube" parent="." instance=ExtResource("4_eu8vo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+
+[node name="WaterPlane" parent="." instance=ExtResource("6_y0s4v")]
