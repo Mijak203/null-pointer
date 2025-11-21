@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=5 format=3 uid="uid://cdh6sracst7yp"]
+
+[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbm7m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,6 +16,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Level_test" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_iho50")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3wh16")
