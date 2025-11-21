@@ -6,14 +6,11 @@
 [ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="2_4w0vo"]
 [ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/mesh_lib.tres" id="3_5yd65"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
-<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 
 [sub_resource type="Curve" id="Curve_y0s4v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
 point_count = 3
-=======
-[ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
->>>>>>> 7f5d88d6ed5210e2a598adda64540661fa9d7606
 
 [sub_resource type="CurveTexture" id="CurveTexture_eu8vo"]
 curve = SubResource("Curve_y0s4v")
