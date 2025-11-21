@@ -1,11 +1,14 @@
 extends Area3D
-
-
-# Called when the node enters the scene tree for the first time.
+@onready var cube: CharacterBody3D = get_node("/root/World/Cube")
+@export var teleport_destination : Area3D
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+	cube.teleport.connect(on_teleport)
+		
+func on_teleport(colliderName):
+	
+	if self.name ==colliderName:
+		var destination = self.teleport_destination.global_position
+		cube.global_position = destination
+		
+		
