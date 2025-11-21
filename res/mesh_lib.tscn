@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxntu63ehdto1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma6l1"]
+albedo_color = Color(0.4638188, 0.6985574, 0.35025322, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ma6l1"]
+material = SubResource("StandardMaterial3D_ma6l1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a1ian"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07itl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ten7p"]
+material = SubResource("StandardMaterial3D_07itl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6swl"]
+
+[node name="Mesh_lib" type="Node3D"]
+
+[node name="Test" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ma6l1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Test"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test/StaticBody3D"]
+shape = SubResource("BoxShape3D_a1ian")
+
+[node name="Trans" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_ten7p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Trans"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trans/StaticBody3D"]
+shape = SubResource("BoxShape3D_w6swl")
