@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkft6ylhbsr6y"]
+
+[ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="1_5o6gu"]
+[ext_resource type="PackedScene" uid="uid://c5rrantbnpih0" path="res://components/firewall/firewall.tscn" id="2_63db3"]
+[ext_resource type="MeshLibrary" uid="uid://dgokvgue18t7s" path="res://res/meshes/mesh_lib_glitch.meshlib" id="3_uhk0l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o6gu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_63db3"]
+sky_material = SubResource("ProceduralSkyMaterial_5o6gu")
+
+[sub_resource type="Environment" id="Environment_uhk0l"]
+background_mode = 1
+background_color = Color(0.29803923, 0, 0, 1)
+sky = SubResource("Sky_63db3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_6soxo"]
+resource_name = "anim"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-4.0965495, 1.8879104, -0.57048035), Vector3(-32.45101, 11.176537, -0.57048035)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5655777, 0), Vector3(0, -1.5655777, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cvbhi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.0965495, 1.8879104, -0.57048035)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5655777, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8cgc"]
+_data = {
+&"RESET": SubResource("Animation_cvbhi"),
+&"anim": SubResource("Animation_6soxo")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uhk0l")
+
+[node name="Cube" parent="." instance=ExtResource("1_5o6gu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, -0.5)
+script = null
+
+[node name="Firewall" parent="." instance=ExtResource("2_63db3")]
+transform = Transform3D(1, 0, 0, 0, 3000, 0, 0, 0, 3000, 13.541457, 0.18269658, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.0052185575, 0, -0.9999864, 0, 1, 0, 0.9999864, 0, 0.0052185575, -4.0965495, 1.8879104, -0.57048035)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t8cgc")
+}
+autoplay = "anim"
+
+[node name="GridMapGlitch" type="GridMap" parent="."]
+mesh_library = ExtResource("3_uhk0l")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65532, 65535, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
