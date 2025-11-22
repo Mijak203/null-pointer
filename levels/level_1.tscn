@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://cqvtag76l7mpj"]
 
 [ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="1_bt44k"]
-[ext_resource type="MeshLibrary" uid="uid://bmn0cu5sy8a7" path="res://res/meshes/main_mesh_lib.tres" id="2_gwceb"]
+[ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="2_gwceb"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="3_bt44k"]
 [ext_resource type="ArrayMesh" uid="uid://basisjb721gfa" path="res://res/objects/reimported/tree.res" id="4_kx6l7"]
 [ext_resource type="ArrayMesh" uid="uid://bg86e86nrqhyr" path="res://res/objects/reimported/grass.res" id="5_gwceb"]
