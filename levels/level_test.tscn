@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=23 format=3 uid="uid://cdh6sracst7yp"]
 
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://c5qfi1rydf1wd" path="res://components/plate/test_block.tscn" id="1_sop0g"]
@@ -9,38 +9,39 @@
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="9_vac4a"]
-[ext_resource type="MeshLibrary" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_cd850"]
+[ext_resource type="MeshLibrary" uid="uid://cn876oqcfrkue" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_cd850"]
+[ext_resource type="PackedScene" uid="uid://dmm672nielw7e" path="res://components/goal_area/goal_area.tscn" id="11_gcim3"]
 
 [sub_resource type="Curve" id="Curve_y0s4v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_eu8vo"]
+[sub_resource type="CurveTexture" id="CurveTexture_ych25"]
 curve = SubResource("Curve_y0s4v")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y0s4v"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tt56a"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oaphh"]
 noise = SubResource("FastNoiseLite_y0s4v")
 seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tt56a"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vac4a"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ie8pl"]
 noise = SubResource("FastNoiseLite_tt56a")
 seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vac4a"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cd850"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2iotn"]
 noise = SubResource("FastNoiseLite_vac4a")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gcim3"]
 shader = ExtResource("2_4w0vo")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_vac4a")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_tt56a")
-shader_parameter/cloud_curves = SubResource("CurveTexture_eu8vo")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_ie8pl")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_oaphh")
+shader_parameter/cloud_curves = SubResource("CurveTexture_ych25")
 shader_parameter/clouds_samples = 32
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.5
@@ -48,7 +49,7 @@ shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.035
 shader_parameter/clouds_light_color = Color(0.973535, 0.9735351, 0.973535, 1)
 shader_parameter/clouds_shadow_intensity = 1.0
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_cd850")
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_2iotn")
 shader_parameter/high_clouds_density = 0.20000000298024
 shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
 shader_parameter/bottom_color = Color(0, 0.32941177, 0.96862745, 1)
@@ -60,12 +61,12 @@ shader_parameter/stars_intensity = 0.0
 shader_parameter/shooting_stars_intensity = 0.0
 shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
 
-[sub_resource type="Sky" id="Sky_iho50"]
+[sub_resource type="Sky" id="Sky_vkmot"]
 sky_material = SubResource("ShaderMaterial_gcim3")
 
 [sub_resource type="Environment" id="Environment_3wh16"]
 background_mode = 2
-sky = SubResource("Sky_iho50")
+sky = SubResource("Sky_vkmot")
 tonemap_mode = 2
 glow_intensity = 0.0
 adjustment_enabled = true
@@ -125,3 +126,6 @@ data = {
 "cells": PackedInt32Array(0, 6, 0, 65535, 6, 0, 65535, 7, 0, 0, 7, 0, 0, 8, 0, 1, 8, 0, 65535, 8, 0, 65534, 8, 0, 0, 9, 0, 65535, 9, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GoalArea" parent="." instance=ExtResource("11_gcim3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.786342, 1.5, 4.648399)

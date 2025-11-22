@@ -1,12 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmm672nielw7e"]
+[gd_scene load_steps=7 format=3 uid="uid://dmm672nielw7e"]
+
+[ext_resource type="Shader" uid="uid://csuq6sk0lnlp1" path="res://components/goal_area/exit.gdshader" id="1_lhwdx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egwdh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egwdh"]
-albedo_color = Color(0.9246848, 0.52256864, 1.347661e-06, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jkamk"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_lhwdx"]
-material = SubResource("StandardMaterial3D_egwdh")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1i37g"]
+noise = SubResource("FastNoiseLite_jkamk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7oj6i"]
+render_priority = 0
+shader = ExtResource("1_lhwdx")
+shader_parameter/beam_color = Color(0, 0.9639713, 0.9433136, 1)
+shader_parameter/intensity = 2.5050000714875003
+shader_parameter/pixel_size = 87.150003664625
+shader_parameter/gap_size = 0.1
+shader_parameter/scroll_speed = 2.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_1i37g")
+shader_parameter/top_fade = 0.2
+shader_parameter/bottom_fade = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dvtww"]
+material = SubResource("ShaderMaterial_7oj6i")
+height = 1.0
+cap_top = false
 
 [node name="GoalArea" type="Area3D"]
 collision_layer = 4
@@ -16,4 +34,4 @@ collision_mask = 0
 shape = SubResource("BoxShape3D_egwdh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_lhwdx")
+mesh = SubResource("CylinderMesh_dvtww")
