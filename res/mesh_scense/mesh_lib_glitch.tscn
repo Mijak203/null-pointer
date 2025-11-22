@@ -9,12 +9,12 @@
 render_priority = 0
 shader = ExtResource("1_a1eya")
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_a1eya")
-shader_parameter/tint_color = Color(0.09803922, 1, 0.12941177, 0.11372549)
-shader_parameter/matrix_color = Color(0, 1, 0.2, 0.29803923)
+shader_parameter/tint_color = Color(0.09803922, 1, 0.12941177, 0.48235294)
+shader_parameter/matrix_color = Color(0, 1, 0, 0.6117647)
 shader_parameter/matrix_texture = ExtResource("2_od5v4")
 shader_parameter/text_scale = 2.0
 shader_parameter/matrix_strength = 0.5
-shader_parameter/bug_color = Color(1, 0, 0.5, 1)
+shader_parameter/bug_color = Color(1, 0, 0.93333334, 1)
 shader_parameter/glitch_intensity = 0.4800000228
 shader_parameter/glitch_speed = 4.46
 shader_parameter/block_size = 0.66
