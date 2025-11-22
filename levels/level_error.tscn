@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="7_cwk0t"]
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="8_uervg"]
 [ext_resource type="PackedScene" uid="uid://c5qfi1rydf1wd" path="res://components/plate/test_block.tscn" id="9_5wa86"]
-[ext_resource type="MeshLibrary" uid="uid://cn876oqcfrkue" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_arp2v"]
+[ext_resource type="MeshLibrary" uid="uid://dgokvgue18t7s" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_arp2v"]
 [ext_resource type="Texture2D" uid="uid://pe30j0fc1fla" path="res://assets/red-screen.png" id="10_va7os"]
 
 [sub_resource type="Environment" id="Environment_us4xt"]
