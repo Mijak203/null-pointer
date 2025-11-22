@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://sgon0j5tpurb"]
 
 [ext_resource type="Script" uid="uid://bgef1jijkkiea" path="res://components/camera_rig/camera_rig.gd" id="1_f3eq1"]
-[ext_resource type="Shader" uid="uid://dqpnj12h7w2bs" path="res://components/camera_rig/vhs.gdshader" id="2_fxsbe"]
+[ext_resource type="Shader" path="res://components/camera_rig/vhs.gdshader" id="2_fxsbe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f83a4"]
 shader = ExtResource("2_fxsbe")
