@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="9_vac4a"]
-[ext_resource type="MeshLibrary" uid="uid://cn876oqcfrkue" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_cd850"]
+[ext_resource type="MeshLibrary" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_cd850"]
 
 [sub_resource type="Curve" id="Curve_y0s4v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
