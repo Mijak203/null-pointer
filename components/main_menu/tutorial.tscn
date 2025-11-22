@@ -148,7 +148,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("2_0g7e5")
 theme_override_styles/pressed = ExtResource("5_gxfky")
 theme_override_styles/hover = ExtResource("6_ddj1w")
-text = "SKIP (R)"
+text = "SKIP "
 alignment = 2
 
 [node name="Space3" type="Control" parent="VBoxContainer/Navigation"]
