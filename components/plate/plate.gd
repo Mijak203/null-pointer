@@ -13,7 +13,7 @@ var block_collision: CollisionShape3D
 
 func _ready() -> void:
 	cube.step_on_plate.connect(on_plate_stand)
-
+	
 	# --- 1. PRZYGOTOWANIE GRID MAPY ---
 	if grid_map_target:
 		var library = grid_map_target.mesh_library
@@ -23,7 +23,9 @@ func _ready() -> void:
 			if item_mesh:
 				grid_material = item_mesh.surface_get_material(0)
 				_setup_transparency(grid_material)
-
+		grid_map_target.collision_layer = 0 
+		print("Most: Kolizja WYŁĄCZONA")
+		_set_material_alpha(grid_material, 0.2) # Zrób przezroczyste
 	# --- 2. PRZYGOTOWANIE BLOCK CHANGE (Zoptymalizowane) ---
 	if block_change:
 		for child in block_change.get_children():
