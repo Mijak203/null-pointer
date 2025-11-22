@@ -14,7 +14,7 @@ frequency = 0.002
 noise = SubResource("FastNoiseLite_ihjj7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b5efi"]
-render_priority = -1
+render_priority = 0
 shader = ExtResource("2_73rxi")
 shader_parameter/beam_color = Color(6.3773246e-07, 0.31162763, 0.031678554, 1)
 shader_parameter/intensity = 10.0
