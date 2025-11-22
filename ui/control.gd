@@ -4,40 +4,32 @@ extends CanvasLayer
 @onready var quit_btn: Button = $Control/ColorRect/VBoxContainer/QuitButton
 @onready var menu_button: Button = $Control/ColorRect/VBoxContainer/MenuButton
 
+@onready var control: Control = $Control
 
 
 func _ready() -> void:
-	# Podłączamy sygnały
 	resume_btn.pressed.connect(_on_resume_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
 	
-	# Ukrywamy menu na starcie
-	visible = false
+	control.visible = false
 
 func _input(event: InputEvent) -> void:
-	# Sprawdzamy klawisz (np. ESC lub P)
-	if event.is_action_pressed("ui_cancel"): # Domyślnie ESC
+	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
 
 func toggle_pause() -> void:
-	# Przełączamy widoczność menu
-	visible = !visible
+	control.visible = !control.visible
 	
-	# ZATRZYMYWANIE GRY:
-	# get_tree().paused zamraża wszystko, co ma Process Mode ustawione na 'Inherit' (domyślne)
-	get_tree().paused = visible
+	get_tree().paused = control.visible
 
 func _on_resume_pressed() -> void:
 	
 	toggle_pause()
 
 func _on_quit_pressed() -> void:
-	# Zanim wyjdziemy, MUSIMY odblokować grę!
-	# Inaczej Main Menu też będzie zamrożone.
 	get_tree().paused = false
 	
-	# Zmiana sceny (użyj swojego GameManager lub change_scene)
 	get_tree().quit()
 
 func _on_menu_pressed():

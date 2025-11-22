@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cqvtag76l7mpj"]
+[gd_scene load_steps=27 format=3 uid="uid://cqvtag76l7mpj"]
 
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_3sk1a"]
-[ext_resource type="Shader" path="res://res/sky.gdshader" id="1_bt44k"]
+[ext_resource type="Script" uid="uid://btxex80h1bw87" path="res://levels/level.gd" id="1_5ot28"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="1_bt44k"]
 [ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="2_gwceb"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="3_bt44k"]
 [ext_resource type="ArrayMesh" uid="uid://basisjb721gfa" path="res://res/objects/reimported/tree.res" id="4_kx6l7"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://dmm672nielw7e" path="res://components/goal_area/goal_area.tscn" id="8_l53as"]
+[ext_resource type="PackedScene" uid="uid://o0vtmafikvbt" path="res://ui/gui.tscn" id="10_08mmt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bt44k"]
 
@@ -91,6 +93,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_1" type="Node3D"]
+script = ExtResource("1_5ot28")
 
 [node name="UI" parent="." instance=ExtResource("1_3sk1a")]
 
@@ -186,6 +189,7 @@ multimesh = SubResource("MultiMesh_gwceb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 6, 5.5)
 
 [node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_btoec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8591452, 8.414306, 0)
 target = NodePath("../Cube")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -199,3 +203,5 @@ shadow_enabled = true
 
 [node name="GoalArea" parent="." instance=ExtResource("8_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 6.5000005, 5.5)
+
+[node name="GUI" parent="." instance=ExtResource("10_08mmt")]

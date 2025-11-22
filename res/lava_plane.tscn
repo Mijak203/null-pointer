@@ -9,10 +9,10 @@ shader_parameter/WATER_COL = Color(0.69411767, 0.19607843, 0.039215688, 1)
 shader_parameter/WATER2_COL = Color(0.66000634, 0.6487829, 0.16967729, 1)
 shader_parameter/FOAM_COL = Color(0.7559608, 0.43765327, 0.16686788, 1)
 shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(5, 5)
+shader_parameter/tile = Vector2(55, 55)
 shader_parameter/wave_speed = 1.5
 shader_parameter/matrix_color = Color(0.9831459, 0.8155256, 0.30242944, 1)
-shader_parameter/glitch_strength = 0.050000002375
+shader_parameter/glitch_strength = 0.170000008075
 shader_parameter/matrix_density = 0.0350000016625
 shader_parameter/digital_speed = 5.450000258875
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://7mw3va8c7cod"]
 
 [ext_resource type="Script" uid="uid://qcad2hq0m6p" path="res://components/main_menu/settings.gd" id="1_m1m5k"]
-[ext_resource type="Shader" path="res://components/main_menu/routes.gdshader" id="2_mtnqj"]
+[ext_resource type="Shader" uid="uid://7p6kbxat7oon" path="res://components/main_menu/routes.gdshader" id="2_mtnqj"]
 [ext_resource type="FontFile" uid="uid://vp118hqq6cvx" path="res://components/main_menu/Wallpoet-Regular.ttf" id="3_1sn1h"]
 [ext_resource type="StyleBox" uid="uid://cduyp3767f70t" path="res://components/main_menu/button.tres" id="3_bf7tp"]
 [ext_resource type="StyleBox" uid="uid://daaxj64sruu46" path="res://components/main_menu/buttonPressed.tres" id="4_1sn1h"]
@@ -130,7 +130,7 @@ custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1sn1h")
 theme_override_font_sizes/font_size = 32
-text = "AUTO CAMERA"
+text = "AUTO CAMERA (HARD MODE)"
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer3"]
 modulate = Color(1, 1, 1, 0)

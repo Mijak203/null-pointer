@@ -1,13 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://daya4er0m3sp8"]
+[gd_scene load_steps=22 format=3 uid="uid://ledslnub2wnw"]
 
+[ext_resource type="Script" uid="uid://btxex80h1bw87" path="res://levels/level.gd" id="1_8vr3t"]
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_g5mgy"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="2_v5ho1"]
-[ext_resource type="Shader" path="res://res/sky.gdshader" id="3_ldpug"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="3_ldpug"]
 [ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="4_8vr3t"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="5_a58qw"]
 [ext_resource type="PackedScene" uid="uid://dmm672nielw7e" path="res://components/goal_area/goal_area.tscn" id="6_ij65d"]
 [ext_resource type="PackedScene" uid="uid://dnag3xixhsf21" path="res://res/lava_plane.tscn" id="7_gci8k"]
 [ext_resource type="PackedScene" uid="uid://c0ykiimkkvm6m" path="res://res/objects/reimported/stalaktyt.glb" id="8_v5ho1"]
+[ext_resource type="PackedScene" uid="uid://o0vtmafikvbt" path="res://ui/gui.tscn" id="10_a58qw"]
 
 [sub_resource type="Curve" id="Curve_gder6"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -70,6 +72,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_5" type="Node3D"]
+script = ExtResource("1_8vr3t")
 
 [node name="UI" parent="." instance=ExtResource("1_g5mgy")]
 
@@ -152,3 +155,5 @@ transform = Transform3D(0.7800022, 0, 0, 0, 0.779464, -0.16412279, 0, 0.1670457,
 
 [node name="stalaktyt17" parent="." instance=ExtResource("8_v5ho1")]
 transform = Transform3D(1, 0, 0, 0, 0.5795555, -0.25881904, 0, 0.15529144, 0.9659258, -41, 3.0340743, 21.74118)
+
+[node name="GUI" parent="." instance=ExtResource("10_a58qw")]

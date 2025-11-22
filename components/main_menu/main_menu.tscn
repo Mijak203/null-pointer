@@ -59,6 +59,10 @@ theme_override_fonts/font = ExtResource("7_eakp8")
 text = "NULL POINTER"
 label_settings = SubResource("LabelSettings_xvr1m")
 
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -71,7 +75,7 @@ text = "PLAY"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 20
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -84,7 +88,7 @@ text = "SETTINGS"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 20
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

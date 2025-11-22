@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://600vgi7a8yaw"]
+[gd_scene load_steps=25 format=3 uid="uid://600vgi7a8yaw"]
 
+[ext_resource type="Script" uid="uid://btxex80h1bw87" path="res://levels/level.gd" id="1_m516p"]
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_nu44e"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="2_kx1xp"]
-[ext_resource type="Shader" path="res://res/sky.gdshader" id="3_m516p"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="3_m516p"]
 [ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="4_l3m5x"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="5_t207q"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="6_g7b2g"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="9_urb8h"]
 [ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="10_f2ri3"]
 [ext_resource type="PackedScene" uid="uid://c5rrantbnpih0" path="res://components/firewall/firewall.tscn" id="11_4cuco"]
+[ext_resource type="PackedScene" uid="uid://o0vtmafikvbt" path="res://ui/gui.tscn" id="13_l3m5x"]
 
 [sub_resource type="Curve" id="Curve_rcw3v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -73,6 +75,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_6" type="Node3D"]
+script = ExtResource("1_m516p")
 
 [node name="UI" parent="." instance=ExtResource("1_nu44e")]
 
@@ -144,3 +147,5 @@ block_change = NodePath("../Firewall")
 
 [node name="Firewall" parent="." instance=ExtResource("11_4cuco")]
 transform = Transform3D(20, 0, 0, 0, 30, 0, 0, 0, 1, -2, 2, 12)
+
+[node name="GUI" parent="." instance=ExtResource("13_l3m5x")]

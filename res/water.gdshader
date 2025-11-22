@@ -1,6 +1,5 @@
 shader_type spatial;
 
-// --- ORYGINALNE UNIFORMY ---
 uniform vec4 WATER_COL : source_color = vec4(0.04, 0.38, 0.88, 1.0);
 uniform vec4 WATER2_COL : source_color = vec4(0.04, 0.35, 0.78, 1.0);
 uniform vec4 FOAM_COL : source_color = vec4(0.8125, 0.9609, 0.9648, 1.0);
@@ -8,17 +7,15 @@ uniform float distortion_speed = 2.0;
 uniform vec2 tile = vec2(5.0, 5.0);
 uniform float wave_speed = 1.5;
 
-// --- NOWE UNIFORMY (GLITCH / MATRIX) ---
 group_uniforms Glitch_Effect;
-uniform vec3 matrix_color : source_color = vec3(0.0, 1.0, 0.4); // Neonowa zieleń
-uniform float glitch_strength : hint_range(0.0, 1.0) = 0.1; // Siła szarpania
-uniform float matrix_density : hint_range(0.0, 1.0) = 0.5; // Ilość "cyfrowego deszczu"
-uniform float digital_speed : hint_range(0.0, 10.0) = 5.0; // Szybkość spadania kodu
+uniform vec3 matrix_color : source_color = vec3(0.0, 1.0, 0.4);
+uniform float glitch_strength : hint_range(0.0, 1.0) = 0.1;
+uniform float matrix_density : hint_range(0.0, 1.0) = 0.5;
+uniform float digital_speed : hint_range(0.0, 10.0) = 5.0;
 
 const float TWOPI = 6.283185307;
 const float SIXPI = 18.84955592;
 
-// Funkcja pomocnicza do losowości (Potrzebna do glitcha)
 float random(vec2 uv) {
     return fract(sin(dot(uv.xy, vec2(12.9898, 78.233))) * 43758.5453123);
 }
@@ -29,7 +26,6 @@ float circ(vec2 pos, vec2 c, float s) {
     return smoothstep(0.0, 0.002, sqrt(s) - sqrt(dot(c, c))) * -1.0;
 }
 
-// Twoja oryginalna funkcja waterlayer (bez zmian)
 float waterlayer(vec2 uv) {
     uv = mod(uv, 1.0);
     float ret = 1.0;
@@ -136,56 +132,39 @@ vec3 water(vec2 uv, vec3 cdir, float iTime) {
 void fragment() {
     vec2 uv = UV * tile;
 
-    // --- EFEKT 1: CYFROWE ZAKŁÓCENIA (GLITCH) ---
-    // Dzielimy ekran na poziome paski
     float glitch_block_y = floor(uv.y * 5.0); 
-    // "Klatkujemy" czas, żeby ruch był skokowy
     float glitch_time = floor(TIME * 10.0);
     
-    // Losujemy czy dany pasek ma się przesunąć
     float noise_val = random(vec2(glitch_block_y, glitch_time));
     
     if (noise_val > (1.0 - glitch_strength)) {
-        // Przesunięcie poziome (tearing)
         uv.x += (random(vec2(noise_val, 0.0)) - 0.5) * 0.5;
     }
 
-    // --- OBLICZANIE WODY Z PRZESUNIĘTYM UV ---
     vec3 water_base = water(uv, vec3(0,1,0), TIME * distortion_speed);
 
-    // --- EFEKT 2: MATRIX RAIN (NAKŁADKA) ---
-    // Tworzymy siatkę dla cyfrowego deszczu
-    vec2 matrix_uv = uv * 2.0; // Gęstość deszczu
+    vec2 matrix_uv = uv * 2.0;
     float column_id = floor(matrix_uv.x);
     
-    // Każda kolumna spada z inną prędkością
     float speed = (random(vec2(column_id, 1.0)) * 0.5 + 0.5) * digital_speed;
     
-    // Generujemy spadające bloki
     float rain_y = floor(matrix_uv.y + TIME * speed);
     float block_noise = random(vec2(column_id, rain_y));
     
-    // Mieszamy wodę z kolorem matrixa
     vec3 final_color = water_base;
     
-    // Jeśli trafimy na "blok kodu" (losowa szansa zależna od density)
     if (block_noise > (1.0 - matrix_density)) {
-        // Mieszamy kolor wody z kolorem matrixa
-        // Dodajemy trochę jasności (1.5), żeby bloki świeciły
         final_color = mix(final_color, matrix_color * 1.5, 0.6);
     }
     
-    // Opcjonalnie: Cała woda lekko "zarazona" kolorem matrixa
     final_color = mix(final_color, matrix_color, 0.2);
 
     ALBEDO.rgb = final_color;
     
-    // Dodatkowo: niech bloki matrixa świecą w ciemności
     if (block_noise > (1.0 - matrix_density)) {
         EMISSION = matrix_color * 0.5;
     }
     
-    // Dodatkowo 2: Niech woda będzie lekko metaliczna
     ROUGHNESS = 0.1;
     METALLIC = 0.5;
 }

@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://wbts0fj85mdy"]
+[gd_scene load_steps=28 format=3 uid="uid://wbts0fj85mdy"]
 
-[ext_resource type="Shader" path="res://res/sky.gdshader" id="1_hldmh"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="1_hldmh"]
+[ext_resource type="Script" uid="uid://btxex80h1bw87" path="res://levels/level.gd" id="1_u4kh1"]
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_wi0qq"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="3_bmgug"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="4_20opy"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="9_jq78i"]
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="10_lsnkt"]
 [ext_resource type="MeshLibrary" uid="uid://dgokvgue18t7s" path="res://res/meshes/mesh_lib_glitch.meshlib" id="11_0unm6"]
+[ext_resource type="PackedScene" uid="uid://o0vtmafikvbt" path="res://ui/gui.tscn" id="16_svivd"]
 
 [sub_resource type="Curve" id="Curve_bmgug"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -77,6 +79,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_3" type="Node3D"]
+script = ExtResource("1_u4kh1")
 
 [node name="UI" parent="." instance=ExtResource("1_wi0qq")]
 
@@ -215,5 +218,7 @@ transform = Transform3D(1, 0, 0, 0, 30, 0, 0, 0, 3, 5.5, 4, 7.5)
 
 [node name="GoalArea" parent="." instance=ExtResource("7_wi0qq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 5.5, 7.5)
+
+[node name="GUI" parent="." instance=ExtResource("16_svivd")]
 
 [editable path="CameraRig"]

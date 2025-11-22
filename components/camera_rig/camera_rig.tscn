@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://sgon0j5tpurb"]
 
 [ext_resource type="Script" uid="uid://bgef1jijkkiea" path="res://components/camera_rig/camera_rig.gd" id="1_f3eq1"]
-[ext_resource type="Shader" path="res://components/camera_rig/vhs.gdshader" id="2_fxsbe"]
+[ext_resource type="Shader" uid="uid://dqpnj12h7w2bs" path="res://components/camera_rig/vhs.gdshader" id="2_fxsbe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f83a4"]
 shader = ExtResource("2_fxsbe")
 shader_parameter/resolution_x = 800
 shader_parameter/resolution_y = 600
-shader_parameter/color_bit_depth = 6
+shader_parameter/color_bit_depth = 7
 shader_parameter/dither_strength = 0.02
-shader_parameter/jitter_amount = 0.004
+shader_parameter/jitter_amount = 0.003
 shader_parameter/jitter_speed = 1.2
 shader_parameter/jitter_frequency = 90.0
 shader_parameter/chromatic_aberration_strength = 0.0310000014725

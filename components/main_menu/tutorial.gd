@@ -10,7 +10,7 @@ var slides = [
 		"image": preload("res://components/main_menu/img/img2.png")
 	},
 	{
-		"text": "STEROWANIE: RUCH\n\nUżyj [WASD] lub STRZAŁEK, by manewrować po sektorach pamięci.\nKażdy ruch musi być pewny. Krawędź mapy to granica danych – nie spadnij.",
+		"text": "STEROWANIE: RUCH\n\nUżyj [WSAD] lub STRZAŁEK, by manewrować po sektorach pamięci.\nKażdy ruch musi być pewny. Krawędź mapy to granica danych – nie spadnij.",
 		"image": preload("res://components/main_menu/img/img3.png")
 	},
 	{
@@ -26,7 +26,7 @@ var slides = [
 		"image": preload("res://components/main_menu/img/img6.png")
 	},
 	{
-		"text": "ZADANIE GŁÓWNE: PRZEŁAM BARIERĘ\n\nMigoczące pola to GLITCH. System ich nie widzi, ale Ty tak.\nZnajdz przycisk i aktywój glitch, by przejść przez barierę danych.",
+		"text": "ZADANIE GŁÓWNE: PRZEŁAM BARIERĘ\n\nMigoczące pola to GLITCH. System ich nie widzi, ale Ty tak.\nZnajdz przycisk i aktywuj glitch, by przejść przez barierę danych.",
 		"image": preload("res://components/main_menu/img/img7.png")
 	},
 	{
@@ -100,4 +100,4 @@ func _on_next():
 		_start_game()
 
 func _start_game():
-	GameManager.change_scene_with_fade("res://levels/level_test.tscn")
+	GameManager.change_scene_with_fade("res://levels/level_1.tscn")
