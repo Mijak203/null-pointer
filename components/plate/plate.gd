@@ -98,9 +98,7 @@ func on_plate_stand():
 				if block_collision.disabled: 
 					shader_mat.set_shader_parameter("base_color", Color(1.0, 0.1, 0.1, 0.35)) # czerwony
 				else:
-					shader_mat.set_shader_parameter("base_color", Color(0.0, 1.0, 0.3, 0.35)) # zielony
-					
-				print("dziala i zmienia kolor")
+					shader_mat.set_shader_parameter("base_color", Color(0.0, 1.0, 0.3, 0.35)) # zielony")
 
 # Uniwersalna funkcja ustawiająca przezroczystość dla obu typów materiałów
 func _set_material_alpha(mat: Material, alpha_value: float):
