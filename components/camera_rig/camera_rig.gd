@@ -50,8 +50,8 @@ func _ready():
 
 # Called by the 'cube.gd' signal. Auto-rotates the camera to face the gap.
 func on_player_gap_detected(gap_position: Vector3):
-	if is_manual_control_active:
-			return
+	if is_manual_control_active or !GameManager.is_camera_enabled:
+		return
 	
 	#print("Camera: Gap target received: ", gap_position)
 	

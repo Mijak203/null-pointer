@@ -10,6 +10,7 @@ var levels = [
 
 # Stores which level is currently loaded
 var current_level_index = 0
+var is_camera_enabled = false
 
 # Warstwa UI do przejść
 var transition_layer: CanvasLayer

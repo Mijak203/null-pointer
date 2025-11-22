@@ -122,6 +122,34 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.8
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
+theme_override_font_sizes/font_size = 32
+text = "AUTO CAMERA"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 450
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
+theme_override_styles/normal = ExtResource("3_bf7tp")
+theme_override_styles/pressed = ExtResource("4_1sn1h")
+theme_override_styles/hover = ExtResource("5_o7n5f")
+text = "ENABLE"
+
+[node name="Control5" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1sn1h")

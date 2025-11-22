@@ -2,6 +2,7 @@ extends Control
 
 @onready var option_button_window_mode: OptionButton = $VBoxContainer/HBoxContainer/OptionButton
 @onready var option_button_resolution: OptionButton = $VBoxContainer/HBoxContainer2/OptionButton
+@onready var check_button: CheckButton = $VBoxContainer/HBoxContainer3/CheckButton
 
 const WINDOW_MODE_ARRAY : Array[String] = [
 	"Full-Screen (Exclusive)",
@@ -25,11 +26,14 @@ func _ready() -> void:
 	# Łączymy sygnały
 	option_button_window_mode.item_selected.connect(_on_window_mode_selected)
 	option_button_resolution.item_selected.connect(_on_resolution_selected)
-	
+	check_button.toggled.connect(_on_camera_enable)
 	# OPCJONALNIE: Ustawienie przycisków na start, by pokazywały aktualny stan
 	# (Możesz to usunąć, jeśli wolisz domyślne wartości 0)
 	_update_ui_from_current_window_state()
-
+	if check_button.toggled.is_connected(_on_camera_enable):
+		print("Połączenie JEST aktywne.")
+	else:
+		print("BŁĄD: Połączenie nieudane!")
 func add_window_mode_items() -> void:
 	option_button_window_mode.clear()
 	for window_mode in WINDOW_MODE_ARRAY:
@@ -118,3 +122,11 @@ func _update_ui_from_current_window_state() -> void:
 
 func _on_back_pressed():
 	GameManager.change_scene_with_fade("res://components/main_menu/main_menu.tscn")
+	
+
+func _on_camera_enable(toggled_on: bool):
+	print("Teraz działa! Nowy stan przycisku: ", toggled_on)
+	
+	GameManager.is_camera_enabled = toggled_on
+
+	print("GameManager.is_camera_enabled = ", GameManager.is_camera_enabled)
