@@ -525,5 +525,5 @@ func check_for_plate():
 	#print("Win Check:", win_check)
 	if plate_check and current_state == State.STANDING:
 		print("cos")
-		step_on_plate.emit()
+		step_on_plate.emit(plate_check.collider.name)
 	
