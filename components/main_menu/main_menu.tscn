@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx4stj7a3dc0v"]
+[gd_scene load_steps=9 format=3 uid="uid://bx4stj7a3dc0v"]
 
 [ext_resource type="Script" uid="uid://c0kxa0814rx1" path="res://components/main_menu/main_menu.gd" id="1_xvr1m"]
 [ext_resource type="Shader" path="res://components/main_menu/routes.gdshader" id="2_7xoae"]
 [ext_resource type="StyleBox" uid="uid://cduyp3767f70t" path="res://components/main_menu/button.tres" id="3_c7jga"]
 [ext_resource type="StyleBox" uid="uid://daaxj64sruu46" path="res://components/main_menu/buttonPressed.tres" id="4_qpshq"]
 [ext_resource type="StyleBox" uid="uid://2e0ipyimyone" path="res://components/main_menu/buttonHover.tres" id="5_e7231"]
+[ext_resource type="FontFile" uid="uid://vp118hqq6cvx" path="res://components/main_menu/Wallpoet-Regular.ttf" id="7_eakp8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7jga"]
 shader = ExtResource("2_7xoae")
@@ -54,11 +55,15 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_eakp8")
 text = "NULL POINTER"
 label_settings = SubResource("LabelSettings_xvr1m")
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("7_eakp8")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("3_c7jga")
 theme_override_styles/pressed = ExtResource("4_qpshq")
 theme_override_styles/hover = ExtResource("5_e7231")
@@ -70,6 +75,8 @@ theme_override_constants/margin_top = 10
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_eakp8")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("3_c7jga")
 theme_override_styles/pressed = ExtResource("4_qpshq")
 theme_override_styles/hover = ExtResource("5_e7231")
@@ -81,6 +88,8 @@ theme_override_constants/margin_top = 10
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_eakp8")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("3_c7jga")
 theme_override_styles/pressed = ExtResource("4_qpshq")
 theme_override_styles/hover = ExtResource("5_e7231")
