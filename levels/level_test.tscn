@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=24 format=3 uid="uid://cdh6sracst7yp"]
 
+[ext_resource type="Script" uid="uid://boh2anofmnsx6" path="res://levels/level_test.gd" id="1_d4l3b"]
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://c5qfi1rydf1wd" path="res://components/plate/test_block.tscn" id="1_sop0g"]
 [ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="1_y0s4v"]
@@ -69,10 +70,13 @@ background_mode = 2
 sky = SubResource("Sky_vkmot")
 tonemap_mode = 2
 glow_intensity = 0.0
+fog_enabled = true
+fog_light_color = Color(0.38941166, 0.4836747, 0.5254627, 1)
 adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_test" type="Node3D"]
+script = ExtResource("1_d4l3b")
 
 [node name="UI" parent="." instance=ExtResource("1_iho50")]
 
@@ -94,7 +98,7 @@ environment = SubResource("Environment_3wh16")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25000003, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0.68143535, 5.271821, -1.8017123)
 light_color = Color(1, 1, 0.7176471, 1)
-light_energy = 0.5
+light_energy = 0.2
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -109,7 +113,7 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 target = NodePath("../Cube")
 
 [node name="WaterPlane" parent="." instance=ExtResource("6_y0s4v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.020353317)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020270348, -0.06149459, 0.0011129379)
 
 [node name="PressurePlate" parent="." node_paths=PackedStringArray("grid_map_target", "block_change") instance=ExtResource("9_vac4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, 4.5)
