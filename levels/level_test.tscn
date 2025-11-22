@@ -107,6 +107,7 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 target = NodePath("../Cube")
 
 [node name="WaterPlane" parent="." instance=ExtResource("6_y0s4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.020353317)
 
 [node name="PressurePlate" parent="." node_paths=PackedStringArray("grid_map_target", "block_change") instance=ExtResource("9_vac4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, 4.5)
@@ -120,6 +121,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, 0.5)
 mesh_library = ExtResource("10_cd850")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(0, 6, 0, 65535, 6, 0, 65535, 7, 0, 0, 7, 0, 0, 8, 0, 1, 8, 0, 65535, 8, 0, 65534, 8, 0, 0, 9, 0, 65535, 9, 0)
+"cells": PackedInt32Array(0, 6, 0, 65535, 6, 0, 65535, 7, 0, 0, 7, 0, 0, 8, 0, 1, 8, 0, 65535, 8, 0, 65534, 8, 0, 0, 9, 0, 65535, 9, 0, 4, 65521, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
