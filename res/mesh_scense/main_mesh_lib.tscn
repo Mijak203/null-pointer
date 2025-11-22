@@ -1,15 +1,21 @@
-[gd_scene load_steps=14 format=4 uid="uid://cjoqmd4odejxj"]
+[gd_scene load_steps=15 format=4 uid="uid://cjoqmd4odejxj"]
 
-[ext_resource type="Texture2D" uid="uid://d0vnl1muppxqa" path="res://res/objects/grassBlock_grassBlock.png" id="1_pynxq"]
-[ext_resource type="Texture2D" uid="uid://bb3h2v4aoxo3p" path="res://res/objects/sandBlock_sandBlock.png" id="2_f5kky"]
-[ext_resource type="Texture2D" uid="uid://com8s3mwqo6f5" path="res://res/objects/stoneBlock_stoneBlock.png" id="3_cdygn"]
+[ext_resource type="Texture2D" uid="uid://cnm58bhcyt58h" path="res://res/sprites/grassBlock.png" id="2_m73rh"]
+[ext_resource type="Shader" uid="uid://be54ia2qam43u" path="res://res/mesh_scense/hologram.gdshader" id="2_mtigy"]
+[ext_resource type="Texture2D" uid="uid://cby0uuroy5b0w" path="res://res/sprites/sandBlock.png" id="3_m73rh"]
+[ext_resource type="Texture2D" uid="uid://dj1li5fo08d17" path="res://res/sprites/stoneBlock.png" id="4_mtigy"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jc1m1"]
-resource_name = "Material"
-cull_mode = 2
-albedo_texture = ExtResource("1_pynxq")
-roughness = 0.5
-texture_filter = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m73rh"]
+render_priority = 0
+shader = ExtResource("2_mtigy")
+shader_parameter/main_texture = ExtResource("2_m73rh")
+shader_parameter/glitch_color = Color(0, 1, 0, 1)
+shader_parameter/tint_strength = 0.1
+shader_parameter/shake_power = 0.0400000019
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_frequency = 10.0
+shader_parameter/scanline_speed = 2.0
+shader_parameter/scanline_size = 0.1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_we2pv"]
 _surfaces = [{
@@ -33,7 +39,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_jc1m1"),
+"material": SubResource("ShaderMaterial_m73rh"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -45,12 +51,17 @@ shadow_mesh = SubResource("ArrayMesh_we2pv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j83mg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfqw0"]
-resource_name = "Material"
-cull_mode = 2
-albedo_texture = ExtResource("2_f5kky")
-roughness = 0.5
-texture_filter = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtigy"]
+render_priority = 0
+shader = ExtResource("2_mtigy")
+shader_parameter/main_texture = ExtResource("3_m73rh")
+shader_parameter/glitch_color = Color(0, 1, 0, 1)
+shader_parameter/tint_strength = 0.1
+shader_parameter/shake_power = 0.0400000019
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_frequency = 10.0
+shader_parameter/scanline_speed = 2.0
+shader_parameter/scanline_size = 0.1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6btyl"]
 _surfaces = [{
@@ -74,7 +85,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_qfqw0"),
+"material": SubResource("ShaderMaterial_mtigy"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -84,12 +95,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6btyl")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06if8"]
-resource_name = "Material"
-cull_mode = 2
-albedo_texture = ExtResource("3_cdygn")
-roughness = 0.5
-texture_filter = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r165a"]
+render_priority = 0
+shader = ExtResource("2_mtigy")
+shader_parameter/main_texture = ExtResource("4_mtigy")
+shader_parameter/glitch_color = Color(0, 1, 0, 1)
+shader_parameter/tint_strength = 0.1
+shader_parameter/shake_power = 0.0400000019
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_frequency = 10.0
+shader_parameter/scanline_speed = 2.0
+shader_parameter/scanline_size = 0.1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lipvm"]
 _surfaces = [{
@@ -113,7 +129,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_06if8"),
+"material": SubResource("ShaderMaterial_r165a"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -142,7 +158,7 @@ shape = SubResource("BoxShape3D_j83mg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42746234, 0, -0.1355532)
 
 [node name="sand" type="MeshInstance3D" parent="sandBlock"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.20699225)
 mesh = SubResource("ArrayMesh_w3yl2")
 skeleton = NodePath("")
 
