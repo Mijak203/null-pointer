@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://wbts0fj85mdy"]
+[gd_scene load_steps=20 format=3 uid="uid://wbts0fj85mdy"]
 
 [ext_resource type="Shader" path="res://res/sky.gdshader" id="1_hldmh"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="3_bmgug"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="4_20opy"]
-[ext_resource type="MeshLibrary" uid="uid://bmn0cu5sy8a7" path="res://res/meshes/main_mesh_lib.tres" id="4_wj73x"]
-[ext_resource type="PackedScene" path="res://res/lava_plane.tscn" id="5_20opy"]
+[ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="4_wj73x"]
+[ext_resource type="PackedScene" uid="uid://dnag3xixhsf21" path="res://res/lava_plane.tscn" id="5_20opy"]
 [ext_resource type="PackedScene" uid="uid://0hd5ifva3c35" path="res://res/objects/object_scense/torch.tscn" id="6_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://df2em7l82sjn0" path="res://res/objects/object_scense/chain_torch.tscn" id="7_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://c0ykiimkkvm6m" path="res://res/objects/reimported/stalaktyt.glb" id="8_ofchu"]
 
 [sub_resource type="Curve" id="Curve_bmgug"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -128,5 +129,38 @@ transform = Transform3D(0.7394431, 0, -0.673219, 0, 1, 0, 0.673219, 0, 0.7394431
 
 [node name="Torch4" parent="." instance=ExtResource("6_8l0e1")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -19.060804, 11.901149, -23.235138)
+
+[node name="stalaktyt" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.67135006, 0.17640398, 0.040801067, -0.27133843, 0.4364617, 0.10095069, 0, -0.086995706, 0.58920807, -22.582457, 3.8764782, -2.0336819)
+
+[node name="stalaktyt2" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.4716034, 0.40834573, -0.6299396, 0.66900843, -0.5359148, -0.23818342, -0.7645395, -0.21706446, -0.59699774, -20.161327, 18.324404, 19.112078)
+
+[node name="stalaktyt3" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.98937035, 0.0804075, -0.08686255, -0.14452083, 0.6048067, -0.5209005, 0.016123116, 0.4871471, 0.66104984, -13.817068, 11.183728, -28.106773)
+
+[node name="stalaktyt4" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.9975968, 0.06928637, 0, -0.06928637, 0.9975968, 0, 0, 0, 1, -17.771734, 4.365882, -17.014267)
+
+[node name="stalaktyt5" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.5776488, -0.16662993, 0, 0.16914618, 0.5690556, 0, 0, 0, 1, 13.17944, 3.2684517, -17.704485)
+
+[node name="stalaktyt6" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.89487207, -0.41284457, -0.16959772, -0.44632277, -0.82774866, -0.3400415, 0, 0.37998894, -0.9249911, 18.4209, 22.600883, -23.009644)
+
+[node name="stalaktyt7" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(-0.12465481, -0.13756049, 0.9826182, 0.16963995, 0.9728058, 0.15770732, -0.97759056, 0.18635057, -0.097929195, 26.946213, 7.0897474, -6.5429335)
+
+[node name="stalaktyt8" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(-0.916006, 0.40116456, 0, -0.40116456, -0.916006, 0, 0, 0, 1, -14.988861, 28.90114, -2.8554153)
+
+[node name="stalaktyt9" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.98770744, -0.15631379, 0, 0.1417812, 0.8958796, 0.42106748, -0.06581865, -0.41589147, 0.90702933, 7.6812325, 2.891614, 21.3648)
+
+[node name="stalaktyt10" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(0.73601437, -0.34512222, -0.582386, 0, -0.86028856, 0.5098074, -0.6769659, -0.37522557, -0.63318473, 20.923512, 22.459402, 18.193272)
+
+[node name="stalaktyt11" parent="." instance=ExtResource("8_ofchu")]
+transform = Transform3D(-0.8841023, 0.21312727, 0.41586083, -0.1770348, -0.9763605, 0.124013014, 0.43246058, 0.036018346, 0.90093327, -1.9873743, 28.184362, 11.047882)
 
 [editable path="CameraRig"]
