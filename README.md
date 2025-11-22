@@ -2,7 +2,7 @@
 
 > **"Złam zasady. Uciekaj z systemu."**
 
-**Null Pointer** to logiczna gra logiczna 3D inspirowana klasyką *Bloxorz*, stworzona na Hackathon. Wcielasz się w anomalię danych, która próbuje uciec przed usunięciem z systemu, wykorzystując błędy w kodzie gry.
+**Null Pointer** to gra logiczna 3D, stworzona podczas Hackathonu SCI 2025. Wcielasz się w anomalię danych, która próbuje uciec przed usunięciem z systemu, wykorzystując błędy w kodzie gry.
 
 ---
 
