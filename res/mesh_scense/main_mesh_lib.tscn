@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dd3bn1f88dgyq"]
+[gd_scene load_steps=14 format=4 uid="uid://dd3bn1f88dgyq"]
 
 [ext_resource type="Texture2D" uid="uid://d0vnl1muppxqa" path="res://res/objects/grassBlock_grassBlock.png" id="1_pynxq"]
 [ext_resource type="Texture2D" uid="uid://bb3h2v4aoxo3p" path="res://res/objects/sandBlock_sandBlock.png" id="2_f5kky"]
@@ -42,6 +42,8 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_we2pv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j83mg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfqw0"]
 resource_name = "Material"
@@ -131,6 +133,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e33tk")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="grassBlock/grass"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grassBlock/grass/StaticBody3D"]
+shape = SubResource("BoxShape3D_j83mg")
+
 [node name="sandBlock" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42746234, 0, -0.1355532)
 
@@ -139,6 +146,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_w3yl2")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="sandBlock/sand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sandBlock/sand/StaticBody3D"]
+shape = SubResource("BoxShape3D_j83mg")
+
 [node name="stoneBlock" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7274487, 2.9802322e-08, 0.3737236)
 
@@ -146,3 +158,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7274487, 2.9802322e-08, 0.3
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_wu1r2")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stoneBlock/stone"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stoneBlock/stone/StaticBody3D"]
+shape = SubResource("BoxShape3D_j83mg")
