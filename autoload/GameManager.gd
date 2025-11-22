@@ -5,6 +5,12 @@ var levels = [
 	#"res://levels/level_test.tscn",
 	#"res://levels/level_1.tscn",
 	#"res://levels/level_1.tscn",
+	"res://levels/level_1",
+	"res://levels/level_4",
+	"res://levels/level_3",
+	"res://levels/level_5",
+	"res://levels/level_2",
+	"res://levels/level_6",
 	"res://components/main_menu/end.tscn"
 ]
 

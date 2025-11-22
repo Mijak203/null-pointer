@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://cqvtag76l7mpj"]
+[gd_scene load_steps=25 format=3 uid="uid://cqvtag76l7mpj"]
 
+[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_3sk1a"]
 [ext_resource type="Shader" path="res://res/sky.gdshader" id="1_bt44k"]
 [ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="2_gwceb"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="3_bt44k"]
@@ -90,6 +91,8 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [node name="Level_1" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_3sk1a")]
 
 [node name="GridMap" type="GridMap" parent="."]
 rotation_order = 1
