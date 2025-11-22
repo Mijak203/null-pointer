@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdh6sracst7yp"]
+[gd_scene load_steps=25 format=3 uid="uid://cdh6sracst7yp"]
 
 [ext_resource type="Script" uid="uid://boh2anofmnsx6" path="res://levels/level_test.gd" id="1_d4l3b"]
 [ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_iho50"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="9_vac4a"]
 [ext_resource type="MeshLibrary" uid="uid://cn876oqcfrkue" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_cd850"]
 [ext_resource type="PackedScene" uid="uid://dmm672nielw7e" path="res://components/goal_area/goal_area.tscn" id="11_gcim3"]
+[ext_resource type="PackedScene" uid="uid://bd5chvwb6sfo2" path="res://ui/gui.tscn" id="13_41qk1"]
 
 [sub_resource type="Curve" id="Curve_y0s4v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -133,3 +134,5 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="GoalArea" parent="." instance=ExtResource("11_gcim3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.786342, 1.5, 4.648399)
+
+[node name="GUI" parent="." instance=ExtResource("13_41qk1")]
