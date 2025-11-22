@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6dcysfk0sa1y"]
+[gd_scene load_steps=6 format=3 uid="uid://b6dcysfk0sa1y"]
 
 [ext_resource type="Script" uid="uid://vk26180lukoa" path="res://components/main_menu/tutorial.gd" id="1_7luft"]
 [ext_resource type="Texture2D" uid="uid://bdco4psrxf4df" path="res://assets/dexter.png" id="2_0k3gk"]
+[ext_resource type="AudioStream" uid="uid://b75d46m05ucw4" path="res://assets/music/1 - Astro Reverie.mp3" id="3_83i3d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0k3gk"]
 font_size = 22
@@ -139,3 +140,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_83i3d")
+autoplay = true

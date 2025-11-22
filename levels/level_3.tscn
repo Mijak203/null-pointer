@@ -1,10 +1,10 @@
 [gd_scene load_steps=19 format=3 uid="uid://wbts0fj85mdy"]
 
-[ext_resource type="Shader" path="res://res/sky.gdshader" id="1_hldmh"]
+[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="1_hldmh"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="3_bmgug"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="4_20opy"]
-[ext_resource type="MeshLibrary" uid="uid://bmn0cu5sy8a7" path="res://res/meshes/main_mesh_lib.tres" id="4_wj73x"]
-[ext_resource type="PackedScene" path="res://res/lava_plane.tscn" id="5_20opy"]
+[ext_resource type="MeshLibrary" uid="uid://tegio26duo42" path="res://res/meshes/main_mesh_lib.tres" id="4_wj73x"]
+[ext_resource type="PackedScene" uid="uid://dnag3xixhsf21" path="res://res/lava_plane.tscn" id="5_20opy"]
 [ext_resource type="PackedScene" uid="uid://0hd5ifva3c35" path="res://res/objects/object_scense/torch.tscn" id="6_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://df2em7l82sjn0" path="res://res/objects/object_scense/chain_torch.tscn" id="7_lfnxh"]
 

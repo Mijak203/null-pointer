@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xvhhfl0fywmb"
+path="res://.godot/imported/2 - Galactic Odyssey.mp3-c4d8edc5a7d2b9478cd5bdf3a024e242.mp3str"
+
+[deps]
+
+source_file="res://assets/music/2 - Galactic Odyssey.mp3"
+dest_files=["res://.godot/imported/2 - Galactic Odyssey.mp3-c4d8edc5a7d2b9478cd5bdf3a024e242.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
