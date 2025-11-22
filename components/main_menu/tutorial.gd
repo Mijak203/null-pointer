@@ -31,7 +31,7 @@ var slides = [
 	},
 	{
 		"text": "STATUS: GOTOWY\n\nZnasz już zasady. Teraz czas je złamać.\nPrzełam barierę i uciekaj z systemu. Powodzenia, Anomalio.",
-		"image": preload("res://assets/dexter.png")
+		"image": preload("res://components/main_menu/img/img8.png")
 	}
 ]
 
