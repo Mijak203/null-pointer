@@ -28,7 +28,7 @@ shader_parameter/glitch_intensity = 2.0
 shader_parameter/scanline_strength = 0.1
 shader_parameter/pulse_speed = 3.0
 
-[node name="Firewall" type="StaticBody3D"]
+[node name="Firewall" type="StaticBody3D" groups=["firewall"]]
 collision_layer = 16
 collision_mask = 2
 

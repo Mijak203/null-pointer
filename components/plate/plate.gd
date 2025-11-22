@@ -86,6 +86,21 @@ func on_plate_stand():
 			_set_material_alpha(block_material, 0.2) # Ukryj
 		else:
 			_set_material_alpha(block_material, 1.0) # Pokaż
+		
+		# Zmiana koloru dla firewalla
+		if block_change.is_in_group("firewall"):
+			# Użyj get_active_material, jest bezpieczniejsze (znajdzie materiał niezależnie czy jest w override czy w meshu)
+			var mat = block_mesh.get_active_material(0)
+			
+			if mat is ShaderMaterial:
+				var shader_mat := mat as ShaderMaterial
+				
+				if block_collision.disabled: 
+					shader_mat.set_shader_parameter("base_color", Color(1.0, 0.1, 0.1, 0.35)) # czerwony
+				else:
+					shader_mat.set_shader_parameter("base_color", Color(0.0, 1.0, 0.3, 0.35)) # zielony
+					
+				print("dziala i zmienia kolor")
 
 # Uniwersalna funkcja ustawiająca przezroczystość dla obu typów materiałów
 func _set_material_alpha(mat: Material, alpha_value: float):
