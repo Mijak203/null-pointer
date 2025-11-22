@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://xaa368px3g5v"]
 
 [ext_resource type="Shader" path="res://res/sky.gdshader" id="1_hldmh"]
-[ext_resource type="MeshLibrary" uid="uid://cwc2aptmxgh0a" path="res://res/meshes/main_mesh_lib.tres" id="2_hldmh"]
+[ext_resource type="MeshLibrary" uid="uid://bmn0cu5sy8a7" path="res://res/meshes/main_mesh_lib.tres" id="2_hldmh"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="3_bmgug"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="4_20opy"]
 [ext_resource type="PackedScene" path="res://res/lava_plane.tscn" id="5_20opy"]
@@ -59,7 +59,6 @@ shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
 sky_material = SubResource("ShaderMaterial_ofchu")
 
 [sub_resource type="Environment" id="Environment_jq78i"]
-background_mode = 1
 background_color = Color(0.10977294, 0.08944958, 0.32338482, 1)
 sky = SubResource("Sky_iho50")
 tonemap_mode = 2
