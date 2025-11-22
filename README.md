@@ -44,7 +44,7 @@ Projekt został zrealizowany w **100% w silniku Godot 4**.
 
 ## 👥 Zespół "Nowy Obóz"
 
-Projekt stworzony w [X] godzin podczas hackathonu [NAZWA HACKATHONU].
+Projekt stworzony w 24 godziny podczas hackathonu SCI 2025.
 
 ---
 *Made with ❤️ and ☕ inside a Null Reference Exception.*
