@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dd3bn1f88dgyq"]
+[gd_scene load_steps=14 format=4 uid="uid://dd3bn1f88dgyq"]
 
 [ext_resource type="Texture2D" uid="uid://d0vnl1muppxqa" path="res://res/objects/grassBlock_grassBlock.png" id="1_pynxq"]
 [ext_resource type="Texture2D" uid="uid://bb3h2v4aoxo3p" path="res://res/objects/sandBlock_sandBlock.png" id="2_f5kky"]
@@ -13,7 +13,7 @@ texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_we2pv"]
 _surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "format": 34896613377,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
@@ -28,7 +28,7 @@ blend_shape_mode = 0
 [sub_resource type="ArrayMesh" id="ArrayMesh_e33tk"]
 resource_name = "grassBlock_Cube"
 _surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "attribute_data": PackedByteArray("//8AAAAA//8AAAAA//////////8AAAAA//8AAAAA//8AAP////8AAAAAAAD/////AAAAAP///////wAAAAD///////8AAAAA//8AAAAA//8AAP////8AAAAAAAD/////"),
 "format": 34896613399,
 "index_count": 36,
@@ -43,6 +43,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_we2pv")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j83mg"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfqw0"]
 resource_name = "Material"
 cull_mode = 2
@@ -52,7 +54,7 @@ texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6btyl"]
 _surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "format": 34896613377,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
@@ -67,7 +69,7 @@ blend_shape_mode = 0
 [sub_resource type="ArrayMesh" id="ArrayMesh_w3yl2"]
 resource_name = "sandBlock_Cube"
 _surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "attribute_data": PackedByteArray("//8AAAAA//8AAAAA//////////8AAAAA//8AAAAA//8AAP////8AAAAAAAD/////AAAAAP///////wAAAAD///////8AAAAA//8AAAAA//8AAP////8AAAAAAAD/////"),
 "format": 34896613399,
 "index_count": 36,
@@ -91,7 +93,7 @@ texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lipvm"]
 _surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "format": 34896613377,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
@@ -106,7 +108,7 @@ blend_shape_mode = 0
 [sub_resource type="ArrayMesh" id="ArrayMesh_wu1r2"]
 resource_name = "stoneBlock_Cube"
 _surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "attribute_data": PackedByteArray("//8AAAAA//8AAAAA//////////8AAAAA//8AAAAA//8AAP////8AAAAAAAD/////AAAAAP///////wAAAAD///////8AAAAA//8AAAAA//8AAP////8AAAAAAAD/////"),
 "format": 34896613399,
 "index_count": 36,
@@ -124,25 +126,40 @@ shadow_mesh = SubResource("ArrayMesh_lipvm")
 [node name="forest_mesh_lib" type="Node3D"]
 
 [node name="grassBlock" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44749486, 0, -0.4244764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01960373, 0, 0.50218093)
 
 [node name="grass" type="MeshInstance3D" parent="grassBlock"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e33tk")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="grassBlock/grass"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grassBlock/grass/StaticBody3D"]
+shape = SubResource("BoxShape3D_j83mg")
+
 [node name="sandBlock" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4823271, 0, -0.41816568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42746234, 0, -0.1355532)
 
 [node name="sand" type="MeshInstance3D" parent="sandBlock"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_w3yl2")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="sandBlock/sand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sandBlock/sand/StaticBody3D"]
+shape = SubResource("BoxShape3D_j83mg")
+
 [node name="stoneBlock" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47747862, 0, -0.38282323)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7274487, 2.9802322e-08, 0.3737236)
 
 [node name="stone" type="MeshInstance3D" parent="stoneBlock"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_wu1r2")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stoneBlock/stone"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stoneBlock/stone/StaticBody3D"]
+shape = SubResource("BoxShape3D_j83mg")
