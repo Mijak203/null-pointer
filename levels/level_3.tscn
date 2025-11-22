@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://wbts0fj85mdy"]
+[gd_scene load_steps=25 format=3 uid="uid://wbts0fj85mdy"]
 
 [ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="1_hldmh"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="3_bmgug"]
@@ -7,7 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dnag3xixhsf21" path="res://res/lava_plane.tscn" id="5_20opy"]
 [ext_resource type="PackedScene" uid="uid://0hd5ifva3c35" path="res://res/objects/object_scense/torch.tscn" id="6_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://df2em7l82sjn0" path="res://res/objects/object_scense/chain_torch.tscn" id="7_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://dmm672nielw7e" path="res://components/goal_area/goal_area.tscn" id="7_wi0qq"]
 [ext_resource type="PackedScene" uid="uid://c0ykiimkkvm6m" path="res://res/objects/reimported/stalaktyt.glb" id="8_ofchu"]
+[ext_resource type="PackedScene" uid="uid://c5rrantbnpih0" path="res://components/firewall/firewall.tscn" id="8_s3q8p"]
+[ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="9_jq78i"]
+[ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="10_lsnkt"]
+[ext_resource type="MeshLibrary" uid="uid://dgokvgue18t7s" path="res://res/meshes/mesh_lib_glitch.meshlib" id="11_0unm6"]
 
 [sub_resource type="Curve" id="Curve_bmgug"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -90,7 +95,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 20, 0)
 
 [node name="Cube" parent="." instance=ExtResource("3_bmgug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 6, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, -9.5)
 
 [node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_20opy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
@@ -163,5 +168,49 @@ transform = Transform3D(0.73601437, -0.34512222, -0.582386, 0, -0.86028856, 0.50
 
 [node name="stalaktyt11" parent="." instance=ExtResource("8_ofchu")]
 transform = Transform3D(-0.8841023, 0.21312727, 0.41586083, -0.1770348, -0.9763605, 0.124013014, 0.43246058, 0.036018346, 0.90093327, -1.9873743, 28.184362, 11.047882)
+
+[node name="Portal" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("9_jq78i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 5, -3.5)
+teleport_destination = NodePath("../Portal2")
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("9_jq78i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 5, -3.5)
+teleport_destination = NodePath("../Portal")
+
+[node name="PressurePlate" parent="." node_paths=PackedStringArray("grid_map_target") instance=ExtResource("10_lsnkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 5, -10.5)
+grid_map_target = NodePath("../GridMapGlitch")
+
+[node name="PressurePlate2" parent="." node_paths=PackedStringArray("grid_map_target") instance=ExtResource("10_lsnkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 5, 3.5000005)
+grid_map_target = NodePath("../GridMapGlitch2")
+
+[node name="PressurePlate3" parent="." node_paths=PackedStringArray("block_change") instance=ExtResource("10_lsnkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 5, 8.5)
+block_change = NodePath("../Firewall")
+
+[node name="GridMapGlitch" type="GridMap" parent="."]
+mesh_library = ExtResource("11_0unm6")
+cell_size = Vector3(1, 1, 1)
+collision_mask = 2
+data = {
+"cells": PackedInt32Array(262150, 65534, 0, 262149, 65534, 0, 262148, 65534, 0, 262147, 65534, 0, 262146, 65534, 0, 262145, 65534, 0, 262144, 65534, 0, 327678, 65534, 0, 327677, 65535, 0, 327676, 65535, 0, 327676, 65534, 0, 327676, 0, 0, 327676, 1, 0, 327676, 2, 0, 327676, 3, 0, 327676, 4, 0, 327679, 65534, 0, 327677, 65534, 0, 327678, 65535, 0, 327677, 0, 0, 327678, 0, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="GridMapGlitch2" type="GridMap" parent="."]
+mesh_library = ExtResource("11_0unm6")
+cell_size = Vector3(1, 1, 1)
+collision_mask = 2
+data = {
+"cells": PackedInt32Array(262152, 7, 0, 262151, 7, 0, 262150, 7, 0, 262149, 7, 0, 262148, 7, 0, 262147, 7, 0, 262146, 7, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="Firewall" parent="." instance=ExtResource("8_s3q8p")]
+transform = Transform3D(1, 0, 0, 0, 30, 0, 0, 0, 3, 5.5, 4, 7.5)
+
+[node name="GoalArea" parent="." instance=ExtResource("7_wi0qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 5.5, 7.5)
 
 [editable path="CameraRig"]
