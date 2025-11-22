@@ -11,7 +11,7 @@ var slides = [
 	},
 	{
 		"text": "STEROWANIE: RUCH\n\nUżyj [WASD] lub STRZAŁEK, by manewrować po sektorach pamięci.\nKażdy ruch musi być pewny. Krawędź mapy to granica danych – nie spadnij.",
-		"image": preload("res://assets/dexter.png")
+		"image": preload("res://components/main_menu/img/img3.png")
 	},
 	{
 		"text": "STEROWANIE: KAMERA\n\nPerspektywa bywa myląca. Użyj [Q] i [E], aby obracać widok.\nCzasem to jedyny sposób, by dostrzec barierę lub ukrytą za nią drogę.",

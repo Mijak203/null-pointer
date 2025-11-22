@@ -32,6 +32,8 @@ func _ready():
 @onready var mesh: MeshInstance3D = $Pivot/MeshInstance3D
 @onready var gap_detector: RayCast3D = $GapDetector
 @onready var camera_rig: Node3D = get_parent().get_node("CameraRig")
+@onready var roll_sfx: AudioStreamPlayer = $RollSFX
+
 
 # --- STATE & PARAMETERS ---
 enum State { STANDING, LYING_X, LYING_Z, FALLING }
@@ -101,13 +103,13 @@ func _physics_process(delta: float) -> void:
 	
 	var target_direction = Vector3.ZERO
 	
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("go_forward"):
 		target_direction = raw_forward
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("go_backward"):
 		target_direction = -raw_forward
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_just_pressed("go_right"):
 		target_direction = raw_right
-	elif Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_just_pressed("go_left"):
 		target_direction = -raw_right
 	
 	if target_direction != Vector3.ZERO:
@@ -350,6 +352,9 @@ func _handle_step_down() -> void:
 		# Snap Y to ground or drop 1 unit if hole
 		if result:
 			position.y = result.position.y
+			if roll_sfx.stream:
+				roll_sfx.pitch_scale = randf_range(0.8, 1.0) 
+				roll_sfx.play()
 		else:
 			position.y -= 1.0
 
@@ -442,6 +447,11 @@ func roll(dir: Vector3) -> void:
 
 	# 3. Animate Roll
 	rolling = true
+	
+	if roll_sfx.stream:
+		roll_sfx.pitch_scale = randf_range(0.9, 1.1)
+		roll_sfx.play()
+	
 	pivot.translate(dir * pivot_offset_dist)
 	mesh.global_translate(-dir * pivot_offset_dist)
 

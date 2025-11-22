@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://df2em7l82sjn0"]
+
+[ext_resource type="PackedScene" uid="uid://dht5hxybg2skw" path="res://res/objects/reimported/chain.glb" id="1_tmewb"]
+[ext_resource type="PackedScene" uid="uid://0hd5ifva3c35" path="res://res/objects/object_scense/torch.tscn" id="2_ka82e"]
+
+[node name="ChainTorch" type="Node3D"]
+
+[node name="chain" parent="." instance=ExtResource("1_tmewb")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.3071828, 0, 0.012856722)
+
+[node name="Torch" parent="." instance=ExtResource("2_ka82e")]
+transform = Transform3D(0.5, 0, 0, 0, 0.46811876, -0.17568392, 0, 0.17568392, 0.46811876, -0.2774874, 0.87012815, -0.78957105)

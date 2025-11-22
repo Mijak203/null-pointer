@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://coq5ax1e4mv45"]
+[gd_scene load_steps=4 format=3 uid="uid://coq5ax1e4mv45"]
 
 [ext_resource type="Script" uid="uid://dl4wwhtk18kq" path="res://ui/ui.gd" id="1_nb4k0"]
+[ext_resource type="AudioStream" uid="uid://xvhhfl0fywmb" path="res://assets/music/2 - Galactic Odyssey.mp3" id="2_ks8t7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nb4k0"]
 font_size = 55
@@ -33,3 +34,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_nb4k0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ks8t7")
+autoplay = true

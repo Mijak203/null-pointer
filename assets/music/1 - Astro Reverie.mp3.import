@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b75d46m05ucw4"
+path="res://.godot/imported/1 - Astro Reverie.mp3-12ba4965364a44fced8d034b88824f10.mp3str"
+
+[deps]
+
+source_file="res://assets/music/1 - Astro Reverie.mp3"
+dest_files=["res://.godot/imported/1 - Astro Reverie.mp3-12ba4965364a44fced8d034b88824f10.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
