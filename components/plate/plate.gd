@@ -15,6 +15,7 @@ func _ready() -> void:
 	cube.step_on_plate.connect(on_plate_stand)
 	
 	# --- 1. PRZYGOTOWANIE GRID MAPY ---
+	
 	if grid_map_target:
 		var library = grid_map_target.mesh_library
 		var tile_ids = library.get_item_list()
@@ -59,46 +60,48 @@ func _setup_transparency(mat: Material):
 		# Reset alpha na start
 		mat.set_shader_parameter("transparency_alpha", 1.0)
 
-func on_plate_stand():
+func on_plate_stand(collider_name):
 	# --- LOGIKA GRID MAPY ---
-	if grid_map_target:
-		# Przełącz kolizję
-		if grid_map_target.collision_layer == 1:
-			grid_map_target.collision_layer = 0 
-			print("Most: Kolizja WYŁĄCZONA")
-			_set_material_alpha(grid_material, 0.2) # Zrób przezroczyste
-		else:
-			grid_map_target.collision_layer = 1 
-			print("Most: Kolizja WŁĄCZONA")
-			_set_material_alpha(grid_material, 1.0) # Zrób widoczne
+	if self.name == collider_name:
+		
+		if grid_map_target:
+			# Przełącz kolizję
+			if grid_map_target.collision_layer == 1:
+				grid_map_target.collision_layer = 0 
+				print("Most: Kolizja WYŁĄCZONA")
+				_set_material_alpha(grid_material, 0.2) # Zrób przezroczyste
+			else:
+				grid_map_target.collision_layer = 1 
+				print("Most: Kolizja WŁĄCZONA")
+				_set_material_alpha(grid_material, 1.0) # Zrób widoczne
 
-	# --- LOGIKA STATYCZNEGO BLOKU ---
-	if block_change:
-		# Przełącz kolizję
-		if block_collision:
-			# set_deferred dla bezpieczeństwa fizyki
-			block_collision.set_deferred("disabled", !block_collision.disabled)
-		
-		# Zmień wygląd (na podstawie stanu kolizji - odwracamy logikę lub sprawdzamy obecny stan)
-		# Tutaj prosty toggle na podstawie aktualnej wartości alpha
-		var current_alpha = _get_material_alpha(block_material)
-		if current_alpha > 0.8:
-			_set_material_alpha(block_material, 0.2) # Ukryj
-		else:
-			_set_material_alpha(block_material, 1.0) # Pokaż
-		
-		# Zmiana koloru dla firewalla
-		if block_change.is_in_group("firewall"):
-			# Użyj get_active_material, jest bezpieczniejsze (znajdzie materiał niezależnie czy jest w override czy w meshu)
-			var mat = block_mesh.get_active_material(0)
+		# --- LOGIKA STATYCZNEGO BLOKU ---
+		if block_change:
+			# Przełącz kolizję
+			if block_collision:
+				# set_deferred dla bezpieczeństwa fizyki
+				block_collision.set_deferred("disabled", !block_collision.disabled)
 			
-			if mat is ShaderMaterial:
-				var shader_mat := mat as ShaderMaterial
+			# Zmień wygląd (na podstawie stanu kolizji - odwracamy logikę lub sprawdzamy obecny stan)
+			# Tutaj prosty toggle na podstawie aktualnej wartości alpha
+			var current_alpha = _get_material_alpha(block_material)
+			if current_alpha > 0.8:
+				_set_material_alpha(block_material, 0.2) # Ukryj
+			else:
+				_set_material_alpha(block_material, 1.0) # Pokaż
+			
+			# Zmiana koloru dla firewalla
+			if block_change.is_in_group("firewall"):
+				# Użyj get_active_material, jest bezpieczniejsze (znajdzie materiał niezależnie czy jest w override czy w meshu)
+				var mat = block_mesh.get_active_material(0)
 				
-				if block_collision.disabled: 
-					shader_mat.set_shader_parameter("base_color", Color(1.0, 0.1, 0.1, 0.35)) # czerwony
-				else:
-					shader_mat.set_shader_parameter("base_color", Color(0.0, 1.0, 0.3, 0.35)) # zielony")
+				if mat is ShaderMaterial:
+					var shader_mat := mat as ShaderMaterial
+					
+					if block_collision.disabled: 
+						shader_mat.set_shader_parameter("base_color", Color(1.0, 0.1, 0.1, 0.35)) # czerwony
+					else:
+						shader_mat.set_shader_parameter("base_color", Color(0.0, 1.0, 0.3, 0.35)) # zielony")
 
 # Uniwersalna funkcja ustawiająca przezroczystość dla obu typów materiałów
 func _set_material_alpha(mat: Material, alpha_value: float):
