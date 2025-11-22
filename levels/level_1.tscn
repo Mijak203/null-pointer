@@ -8,66 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="6_btoec"]
 
-[sub_resource type="Curve" id="Curve_pqqg8"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_gwceb"]
-curve = SubResource("Curve_pqqg8")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0srwa"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l53as"]
-noise = SubResource("FastNoiseLite_0srwa")
-seamless = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_v5uil"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3sk1a"]
-noise = SubResource("FastNoiseLite_v5uil")
-seamless = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5722l"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_08mmt"]
-noise = SubResource("FastNoiseLite_5722l")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilhis"]
-shader = ExtResource("1_bt44k")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_3sk1a")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_l53as")
-shader_parameter/cloud_curves = SubResource("CurveTexture_gwceb")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.5
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_smoothness = 0.035
-shader_parameter/clouds_light_color = Color(0.973535, 0.9735351, 0.973535, 1)
-shader_parameter/clouds_shadow_intensity = 1.0
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_08mmt")
-shader_parameter/high_clouds_density = 0.20000000298024
-shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
-shader_parameter/bottom_color = Color(0, 0.32941177, 0.96862745, 1)
-shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
-shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
-shader_parameter/astro_scale = 5.000000074506
-shader_parameter/astro_intensity = 3.0
-shader_parameter/stars_intensity = 0.0
-shader_parameter/shooting_stars_intensity = 0.0
-shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
-
-[sub_resource type="Sky" id="Sky_5ot28"]
-sky_material = SubResource("ShaderMaterial_ilhis")
-
-[sub_resource type="Environment" id="Environment_ep78u"]
-background_mode = 2
-sky = SubResource("Sky_5ot28")
-tonemap_mode = 2
-glow_intensity = 0.0
-adjustment_enabled = true
-adjustment_saturation = 1.5
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_bt44k"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_n46q3"]
@@ -88,16 +28,67 @@ instance_count = 25
 mesh = ExtResource("5_gwceb")
 buffer = PackedFloat32Array(-0.2997349, 0, 0.02756816, -2.203823, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -30.127625, -0.29973486, 0, 0.027568301, 8.846037, 0, 0.301, 0, 7.275821, -0.027568301, 0, -0.29973486, -31.278923, -0.027568275, 0, -0.29973486, 9.629364, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568275, -23.589838, -0.027568275, 0, -0.29973486, 9.794664, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568275, -27.157745, -0.29973486, 0, 0.027568301, -9.306203, 0, 0.301, 0, 7.2758207, -0.027568301, 0, -0.29973486, -29.463932, -0.027568283, 0, -0.29973486, 0.22637063, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568283, -23.304955, -0.027568288, 0, -0.29973486, 6.078751, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568288, -24.939098, -0.2997349, 0, 0.02756816, 5.298328, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -28.83722, -0.2997349, 0, 0.02756816, -6.8780203, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -32.900864, -0.2997349, 0, 0.02756816, -3.870131, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -30.528416, -0.2997349, 0, 0.02756816, 4.326897, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -31.133635, -0.027568275, 0, -0.29973486, 11.618414, 0, 0.301, 0, 7.2758203, 0.29973486, 0, -0.027568275, -23.923548, -0.2997349, 0, 0.02756816, -5.177853, 0, 0.30100003, 0, 7.275821, -0.02756816, 0, -0.2997349, -27.298061, -0.29973486, 0, 0.027568301, -8.658803, 0, 0.301, 0, 7.2758207, -0.027568301, 0, -0.29973486, -26.346352, -0.027568288, 0, -0.29973486, 6.5918126, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568288, -27.655464, -0.29973486, 0, 0.027568301, -8.486404, 0, 0.301, 0, 7.2758207, -0.027568301, 0, -0.29973486, -30.220552, -0.027568275, 0, -0.29973486, 15.160735, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568275, -28.715027, -0.02756828, 0, -0.29973486, -4.5737925, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.02756828, -24.77087, -0.027568301, 0, -0.29973486, 16.13945, 0, 0.301, 0, 7.275821, 0.29973486, 0, -0.027568301, -22.301378, -0.027568301, 0, -0.29973486, 15.158646, 0, 0.301, 0, 7.275821, 0.29973486, 0, -0.027568301, -23.848423, -0.29973486, 0, 0.027568301, 11.585007, 0, 0.301, 0, 7.2758207, -0.027568301, 0, -0.29973486, -31.262573, -0.2997349, 0, 0.02756816, -3.6316566, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -26.255245, -0.2997349, 0, 0.02756816, -4.0012355, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -32.30219, -0.027568275, 0, -0.29973486, 5.531847, 0, 0.301, 0, 7.2758207, 0.29973486, 0, -0.027568275, -22.527285, -0.2997349, 0, 0.02756816, -3.0264225, 0, 0.30100003, 0, 7.2758207, -0.02756816, 0, -0.2997349, -27.411453)
 
+[sub_resource type="Curve" id="Curve_gwceb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eu8vo"]
+curve = SubResource("Curve_gwceb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l53as"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tt56a"]
+noise = SubResource("FastNoiseLite_l53as")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3sk1a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vac4a"]
+noise = SubResource("FastNoiseLite_3sk1a")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_08mmt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cd850"]
+noise = SubResource("FastNoiseLite_08mmt")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ot28"]
+shader = ExtResource("1_bt44k")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_vac4a")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_tt56a")
+shader_parameter/cloud_curves = SubResource("CurveTexture_eu8vo")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.5
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = Color(0.973535, 0.9735351, 0.973535, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_cd850")
+shader_parameter/high_clouds_density = 0.20000000298024
+shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
+shader_parameter/bottom_color = Color(0, 0.32941177, 0.96862745, 1)
+shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
+shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
+shader_parameter/astro_scale = 5.000000074506
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_iho50"]
+sky_material = SubResource("ShaderMaterial_5ot28")
+
+[sub_resource type="Environment" id="Environment_aerfg"]
+background_mode = 2
+sky = SubResource("Sky_iho50")
+tonemap_mode = 2
+glow_intensity = 0.0
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
 [node name="Level_1" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ep78u")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0, 0, 0)
-light_color = Color(1, 1, 0.7176471, 1)
-light_energy = 0.5
-shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
 rotation_order = 1
@@ -109,7 +100,7 @@ data = {
 metadata/_editor_floor_ = Vector3(12, 4, 0)
 
 [node name="WaterPlane" parent="." instance=ExtResource("3_bt44k")]
-transform = Transform3D(0.2925703, 0, -0.06635221, 0, 0.29999998, 0, 0.06635221, 0, 0.2925703, -2.994, 4.942, 2.388)
+transform = Transform3D(0.2925703, 0, -0.06635221, 0, 0.29999998, 0, 0.06635221, 0, 0.2925703, -3.0163178, 4.942, 2.3878627)
 
 [node name="plateDoDrzew" type="MeshInstance3D" parent="."]
 transform = Transform3D(14.9369545, 0, -0.4579426, 0, 10.000001, 0, 1.3738285, 0, 4.978985, 2.810936, 7.2758207, -27.646877)
@@ -192,3 +183,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 6, 0.5)
 
 [node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_btoec")]
 target = NodePath("../Cube")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aerfg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25000003, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0.68143535, 5.271821, -1.8017123)
+light_color = Color(1, 1, 0.7176471, 1)
+light_energy = 0.5
+shadow_enabled = true
