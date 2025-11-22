@@ -9,16 +9,17 @@
 render_priority = 0
 shader = ExtResource("1_a1eya")
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_a1eya")
-shader_parameter/tint_color = Color(0.09803922, 1, 0.12941177, 0.48235294)
-shader_parameter/matrix_color = Color(0, 1, 0, 0.6117647)
+shader_parameter/tint_color = Color(0.3329893, 0.9865654, 0, 0.7490196)
+shader_parameter/matrix_color = Color(0.8609541, 0, 0.36918566, 0.6117647)
 shader_parameter/matrix_texture = ExtResource("2_od5v4")
-shader_parameter/text_scale = 2.0
-shader_parameter/matrix_strength = 0.5
+shader_parameter/text_scale = -0.515
+shader_parameter/matrix_strength = 0.8750000415625
 shader_parameter/bug_color = Color(1, 0, 0.93333334, 1)
 shader_parameter/glitch_intensity = 0.4800000228
 shader_parameter/glitch_speed = 4.46
 shader_parameter/block_size = 0.66
 shader_parameter/emission_strength = 10.0
+shader_parameter/transparency_alpha = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_ma6l1"]
 material = SubResource("ShaderMaterial_od5v4")

@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, cull_disabled;
+render_mode unshaded, cull_disabled, depth_draw_always;
 
 // --- TEKSTURA OBIEKTU (NOWOŚĆ) ---
 uniform sampler2D albedo_texture : source_color, filter_linear_mipmap, repeat_enable;
@@ -18,6 +18,8 @@ uniform float glitch_speed = 10.0;
 uniform float block_size = 5.0;
 
 uniform float emission_strength : hint_range(0.0, 5.0) = 1.0;
+
+uniform float transparency_alpha : hint_range(0.0, 1.0) = 1.0;
 
 varying vec3 world_pos;
 
@@ -110,5 +112,5 @@ void fragment() {
 	float glow_mask = (code_mask * matrix_strength) + (is_glitching ? 1.0 : 0.0);
 	EMISSION = ALBEDO * (emission_strength * 0.2 + glow_mask * emission_strength);
 	
-	ALPHA = tex_color.a;
+	ALPHA = tex_color.a * transparency_alpha;
 }

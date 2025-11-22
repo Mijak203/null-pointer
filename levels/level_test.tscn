@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="4_eu8vo"]
 [ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="6_y0s4v"]
 [ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="9_vac4a"]
-[ext_resource type="MeshLibrary" uid="uid://cwc2aptmxgh0a" path="res://res/meshes/main_mesh_lib.tres" id="10_cd850"]
+[ext_resource type="MeshLibrary" uid="uid://cn876oqcfrkue" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_cd850"]
 
 [sub_resource type="Curve" id="Curve_y0s4v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23053895, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70630205), 0.0, 0.0, 0, 0]
@@ -122,6 +122,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, 0.5)
 mesh_library = ExtResource("10_cd850")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(0, 6, 0, 65535, 6, 0, 65535, 7, 0, 0, 7, 0, 0, 8, 0, 1, 8, 0, 65535, 8, 0, 65534, 8, 0, 0, 9, 0, 65535, 9, 0, 4, 65521, 0)
+"cells": PackedInt32Array(0, 6, 0, 65535, 6, 0, 65535, 7, 0, 0, 7, 0, 0, 8, 0, 1, 8, 0, 65535, 8, 0, 65534, 8, 0, 0, 9, 0, 65535, 9, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
