@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdco4psrxf4df"
-path.s3tc="res://.godot/imported/dexter.png-7a206dc221900d9499dfd3b7e2faacc5.s3tc.ctex"
+uid="uid://cjj3500e13k1b"
+path="res://.godot/imported/matrix-text.png-9b6594a5d79177fa3a6823d3d1cb0da5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dexter.png"
-dest_files=["res://.godot/imported/dexter.png-7a206dc221900d9499dfd3b7e2faacc5.s3tc.ctex"]
+source_file="res://components/main_menu/matrix-text.png"
+dest_files=["res://.godot/imported/matrix-text.png-9b6594a5d79177fa3a6823d3d1cb0da5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

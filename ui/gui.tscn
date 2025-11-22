@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd5chvwb6sfo2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_atfc0"]
+font_size = 20
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Restart" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.30005
+offset_top = -42.35498
+offset_right = -12.300049
+offset_bottom = -14.35498
+grow_horizontal = 0
+grow_vertical = 0
+text = "RESTART (R)"
+label_settings = SubResource("LabelSettings_atfc0")

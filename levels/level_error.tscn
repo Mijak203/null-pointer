@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjalyeukdqp8b"]
+
+[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_va7os"]
+[ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="2_us4xt"]
+[ext_resource type="PackedScene" uid="uid://bkkp6u111wvj1" path="res://components/portal/portal.tscn" id="3_80h3m"]
+[ext_resource type="MeshLibrary" uid="uid://cwk15eg3qvxqv" path="res://res/meshes/mesh_lib.tres" id="5_0irf6"]
+[ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="6_eowk2"]
+[ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="7_cwk0t"]
+[ext_resource type="PackedScene" uid="uid://bl3ewsa30shdb" path="res://components/plate/plate.tscn" id="8_uervg"]
+[ext_resource type="PackedScene" uid="uid://c5qfi1rydf1wd" path="res://components/plate/test_block.tscn" id="9_5wa86"]
+[ext_resource type="MeshLibrary" uid="uid://cn876oqcfrkue" path="res://res/meshes/mesh_lib_glitch.meshlib" id="10_arp2v"]
+[ext_resource type="Texture2D" uid="uid://pe30j0fc1fla" path="res://assets/red-screen.png" id="10_va7os"]
+
+[sub_resource type="Environment" id="Environment_us4xt"]
+background_mode = 1
+background_color = Color(0.049263038, 0.22299623, 0.13348997, 1)
+
+[node name="Level_test" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_va7os")]
+
+[node name="Cube" parent="." instance=ExtResource("2_us4xt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 8.63328)
+collision_mask = 65
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("3_80h3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -1.5)
+visible = false
+teleport_destination = NodePath("../Portal")
+
+[node name="Portal" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("3_80h3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2563913, 2.7808733, 12.385534)
+teleport_destination = NodePath("../Portal2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_us4xt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25000003, -0.13203752, 0.6803073, 0.7209356, -0.4822511, 0.5913391, -0.6463374, 0.68143535, 5.271821, -1.8017123)
+visible = false
+light_color = Color(1, 1, 0.7176471, 1)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+visible = false
+mesh_library = ExtResource("5_0irf6")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65527, 65533, 0, 0, 65535, 0, 65535, 65535, 0, 65534, 65535, 0, 65533, 65535, 0, 65533, 0, 0, 65532, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 65532, 65535, 0, 2, 0, 0, 3, 0, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 65533, 1, 0, 65532, 1, 0, 65531, 1, 0, 65530, 1, 0, 65530, 0, 0, 65531, 0, 0, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 65533, 65534, 0, 65532, 65534, 0, 65531, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 3, 65534, 0, 65532, 65533, 0, 65531, 65533, 0, 65533, 65533, 0, 4, 65534, 0, 4, 65535, 0, 65534, 65532, 0, 65533, 65532, 0, 65532, 65532, 0, 65532, 65531, 0, 65531, 65531, 0, 65533, 65531, 0, 65534, 65531, 0, 65535, 65531, 0, 0, 65531, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 65535, 65532, 0, 3, 65533, 0, 65531, 65532, 0, 4, 65533, 0, 3, 65532, 0, 1, 65531, 0, 2, 65531, 0, 3, 65531, 0, 4, 65531, 0, 4, 65532, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 4, 3, 0, 3, 3, 0, 5, 0, 0, 4, 4, 0, 4, 5, 0, 3, 5, 0, 3, 4, 0, 2, 4, 0, 2, 3, 0, 2, 2, 0, 1, 2, 0, 3, 2, 0, 1, 3, 0, 0, 2, 0, 65535, 2, 0, 65534, 2, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65533, 3, 0, 65533, 2, 0, 65532, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 3, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0, 65532, 4, 0, 65533, 4, 0, 65534, 4, 0, 2, 5, 0, 1, 5, 0, 0, 5, 0, 65535, 5, 0, 65534, 5, 0, 65533, 5, 0, 65532, 5, 0, 65531, 5, 0, 65530, 5, 0, 65529, 5, 0, 65531, 4, 0, 65530, 4, 0, 65531, 3, 0, 65530, 3, 0, 65529, 4, 0, 65531, 65535, 0, 65529, 3, 0, 65529, 2, 0, 65529, 1, 0, 65529, 0, 0, 65530, 65535, 0, 65530, 65534, 0, 65529, 65535, 0, 65529, 65534, 0, 65529, 65533, 0, 65529, 65532, 0, 65529, 65531, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 65533, 0, 5, 65535, 0, 5, 65534, 0, 5, 65533, 0, 5, 65532, 0, 5, 65531, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 2, 65530, 0, 1, 65530, 0, 0, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65532, 65530, 0, 65531, 65530, 0, 65535, 65529, 0, 65534, 65529, 0, 65533, 65529, 0, 0, 65529, 0, 65528, 65533, 0, 65528, 65534, 0, 65527, 65534, 0, 65527, 65535, 0, 65528, 65535, 0, 65528, 65532, 0, 65528, 0, 0, 65528, 2, 0, 65528, 1, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_eowk2")]
+transform = Transform3D(0.98601, 0.03128647, -0.16372336, 0.04916707, 0.8839344, 0.46501854, 0.15926951, -0.4665628, 0.87003, 0, 2.0379772, 7.606124)
+target = NodePath("../Cube")
+
+[node name="WaterPlane" parent="." instance=ExtResource("7_cwk0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.020353317)
+visible = false
+
+[node name="PressurePlate" parent="." node_paths=PackedStringArray("grid_map_target", "block_change") instance=ExtResource("8_uervg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, 4.5)
+visible = false
+grid_map_target = NodePath("../GridMapGlitch")
+block_change = NodePath("../testBlock")
+
+[node name="testBlock" parent="." instance=ExtResource("9_5wa86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, 0.5)
+visible = false
+
+[node name="GridMapGlitch" type="GridMap" parent="."]
+mesh_library = ExtResource("10_arp2v")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 6, 0, 65535, 6, 0, 65535, 7, 0, 0, 7, 0, 0, 8, 0, 1, 8, 0, 65535, 8, 0, 65534, 8, 0, 0, 9, 0, 65535, 9, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-7.795911, 0.56874835, -3.5861256, -0.948335, 7.880078, 3.3113513, 3.5049148, 3.3971908, -7.0805855, 2.1595159, -5.9955306, 30.544685)
+visible = false
+texture = ExtResource("10_va7os")

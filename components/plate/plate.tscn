@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl3ewsa30shdb"]
+[gd_scene load_steps=5 format=3 uid="uid://bl3ewsa30shdb"]
 
 [ext_resource type="Script" uid="uid://cetjs7wf2lguv" path="res://components/plate/plate.gd" id="1_60cwo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wg1l4"]
 height = 0.1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60cwo"]
+transparency = 1
+albedo_color = Color(1, 0.29411766, 1, 0.2627451)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_0fcwt"]
+material = SubResource("StandardMaterial3D_60cwo")
 height = 0.1
 
 [node name="PressurePlate" type="Area3D"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdco4psrxf4df"
-path.s3tc="res://.godot/imported/dexter.png-7a206dc221900d9499dfd3b7e2faacc5.s3tc.ctex"
+uid="uid://ua554vwrcton"
+path.s3tc="res://.godot/imported/matrix.png-a675e55fb7058fff8a91d691416e2dec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/dexter.png"
-dest_files=["res://.godot/imported/dexter.png-7a206dc221900d9499dfd3b7e2faacc5.s3tc.ctex"]
+source_file="res://entities/player/matrix.png"
+dest_files=["res://.godot/imported/matrix.png-a675e55fb7058fff8a91d691416e2dec.s3tc.ctex"]
 
 [params]
 

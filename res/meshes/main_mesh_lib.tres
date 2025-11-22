@@ -25,7 +25,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_glm8u"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ies68"]
 resource_name = "grassBlock_Cube"
 _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
@@ -52,7 +52,7 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_e31cb"]
+[sub_resource type="ImageTexture" id="ImageTexture_a5ij8"]
 image = SubResource("Image_ies68")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j83mg"]
@@ -78,7 +78,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_apm6s"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_08ai6"]
 resource_name = "sandBlock_Cube"
 _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
@@ -105,7 +105,7 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_ilyqx"]
+[sub_resource type="ImageTexture" id="ImageTexture_1yk06"]
 image = SubResource("Image_qm2wk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06if8"]
@@ -129,7 +129,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dtvh0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_gbds0"]
 resource_name = "stoneBlock_Cube"
 _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
@@ -156,31 +156,31 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_upuyj"]
+[sub_resource type="ImageTexture" id="ImageTexture_co5el"]
 image = SubResource("Image_a5ij8")
 
 [resource]
 item/0/name = "grass"
-item/0/mesh = SubResource("ArrayMesh_glm8u")
+item/0/mesh = SubResource("ArrayMesh_ies68")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/mesh_cast_shadow = 1
 item/0/shapes = [SubResource("BoxShape3D_j83mg"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/navigation_layers = 1
-item/0/preview = SubResource("ImageTexture_e31cb")
+item/0/preview = SubResource("ImageTexture_a5ij8")
 item/1/name = "sand"
-item/1/mesh = SubResource("ArrayMesh_apm6s")
+item/1/mesh = SubResource("ArrayMesh_08ai6")
 item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/mesh_cast_shadow = 1
 item/1/shapes = [SubResource("BoxShape3D_j83mg"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/navigation_layers = 1
-item/1/preview = SubResource("ImageTexture_ilyqx")
+item/1/preview = SubResource("ImageTexture_1yk06")
 item/2/name = "stone"
-item/2/mesh = SubResource("ArrayMesh_dtvh0")
+item/2/mesh = SubResource("ArrayMesh_gbds0")
 item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/mesh_cast_shadow = 1
 item/2/shapes = [SubResource("BoxShape3D_j83mg"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/navigation_layers = 1
-item/2/preview = SubResource("ImageTexture_upuyj")
+item/2/preview = SubResource("ImageTexture_co5el")
