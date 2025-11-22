@@ -1,38 +1,57 @@
 shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back;
 
-uniform sampler2D img;
-uniform float x_scale = 10.0;
-uniform float y_scale = 10.0;
-uniform float time = 0.5;
+// --- 1. TWOJA GRAFIKA (Baza) ---
+group_uniforms Base_Texture;
+uniform sampler2D main_texture : source_color; // Tu wrzuć obrazek ściany/klocka
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0); // Opcjonalne przyciemnienie
 
-// --- NOWOŚĆ: Suwak jasności (0.0 = czarne, 1.0 = jasne) ---
-uniform float brightness_strength : hint_range(0.0, 1.0) = 0.2;
+// --- 2. EFEKT GLITCH (Nakładka) ---
+group_uniforms Glitch_Overlay;
+uniform sampler2D noise_texture; // Tu wrzuć szum (FastNoiseLite)
+uniform vec3 glitch_color : source_color = vec3(0.0, 1.0, 0.0); // Kolor pasków (np. zieleń)
+uniform float glitch_strength : hint_range(0.0, 1.0) = 0.5; // Jak bardzo efekt przykrywa teksturę (0 = wcale, 1 = mocno)
+uniform float emission_power : hint_range(0.0, 5.0) = 2.0; // Jak mocno paski świecą
+
+// --- 3. RUCH ---
+group_uniforms Movement;
+uniform float tiling = 3.0; // Jak gęste są paski
+uniform float speed = 0.2;  // Jak szybko płyną
 
 void fragment(){
-	float x = mod(UV.x, 1.0/x_scale);
-	float y = mod(UV.y, 1.0/y_scale);
+	// KROK 1: Pobierz kolor Twojej głównej tekstury
+	vec4 base_tex = texture(main_texture, UV);
 
-	// ZMIANA: Mnożymy kolor przez siłę jasności
-	EMISSION = vec3(0.0, 1.0, 0.0) * brightness_strength;
+	// KROK 2: Oblicz ruch efektu glitch
+	vec2 noise_uv = UV * tiling;
 
-	float direction;
-	if(mod(UV.x, 2.0/x_scale)-mod(x, 1.0/x_scale) == 0.0){
-		direction = -TIME/3.0;
-	}else{
-		direction = TIME/3.0;
-	}
+	// Trik na "cyfrowy deszcz" - paski przesuwają się w dół
+	float column_shift = floor(noise_uv.x);
+	// Co druga kolumna przesuwa się w innym tempie dla efektu chaosu
+	float move_y = (mod(column_shift, 2.0) == 0.0) ? TIME * speed : TIME * (speed * 1.5);
 
-	vec3 tex = texture(img, vec2(x*x_scale, direction+TIME+y*y_scale)).rgb;
-	float brightness = mod(UV.y - (TIME*time) + y + UV.x-x, 0.5);
+	vec2 final_noise_uv = vec2(noise_uv.x, noise_uv.y + move_y);
+	float noise_value = texture(noise_texture, final_noise_uv).r;
 
-	ALPHA = 0.1 + pow(tex.x * brightness, 0.75);
+	// KROK 3: MIESZANIE (Najważniejsza część)
 
-	if(ALPHA > 0.5){
-		// ZMIANA: Tutaj też mnożymy przez jasność
-		EMISSION = vec3(0.5, 1.0, 0.5) * brightness_strength;
-	}
+	// Obliczamy ostateczny kolor bazy (razem z tintem)
+	vec3 final_base = base_tex.rgb * tint_color.rgb;
 
-	// Opcjonalnie: Jeśli chcesz, żeby całość była bardziej przezroczysta (mniej widoczna),
-	// możesz też przyciemnić Alpha:
-	// ALPHA *= 0.5;
+	// Mieszamy bazę z kolorem glitcha.
+	// Używamy "noise_value", żeby efekt był tylko tam, gdzie szum jest biały.
+	float mask = noise_value * glitch_strength;
+
+	// ALBEDO: W miejscach glitcha podmieniamy trochę kolor tekstury na kolor glitcha
+	ALBEDO = mix(final_base, glitch_color, mask * 0.5);
+
+	// EMISSION: Dodajemy świecenie TYLKO tam gdzie jest glitch
+	EMISSION = glitch_color * mask * emission_power;
+
+	// KROK 4: Przezroczystość (Ważne, jeśli Twoja tekstura ma przezroczyste tło, np. logo)
+	ALPHA = base_tex.a;
+
+	// Dodajemy opcję Metallic/Roughness, żeby klocek wyglądał ładniej (jak plastik/metal)
+	METALLIC = 0.5;
+	ROUGHNESS = 0.2;
 }

@@ -2,8 +2,10 @@ extends Node
 
 # A list of all level scenes
 var levels = [
-	"res://levels/level_test.tscn",
-	"res://levels/level_1.tscn"
+	#"res://levels/level_test.tscn",
+	#"res://levels/level_1.tscn",
+	#"res://levels/level_1.tscn",
+	"res://components/main_menu/end.tscn"
 ]
 
 # Stores which level is currently loaded
@@ -51,8 +53,7 @@ func load_next_level():
 	
 	if current_level_index >= levels.size():
 		print("YOU WON!")
-		# temp
-		change_scene_with_fade("res://scenes/world.tscn")
+		change_scene_with_fade("res://components/main_menu/main_menu.tscn")
 		current_level_index = 0
 	else:
 		var next_scene_path = levels[current_level_index]
