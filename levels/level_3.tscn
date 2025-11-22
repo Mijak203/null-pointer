@@ -62,6 +62,7 @@ shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
 sky_material = SubResource("ShaderMaterial_ofchu")
 
 [sub_resource type="Environment" id="Environment_jq78i"]
+background_mode = 1
 background_color = Color(0.10977294, 0.08944958, 0.32338482, 1)
 sky = SubResource("Sky_iho50")
 tonemap_mode = 2
