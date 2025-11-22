@@ -12,7 +12,7 @@ shader_parameter/distortion_speed = 4.0
 shader_parameter/tile = Vector2(55, 55)
 shader_parameter/wave_speed = 1.5
 shader_parameter/matrix_color = Color(0, 0.3137255, 0.4, 1)
-shader_parameter/glitch_strength = 0.1450000068875
+shader_parameter/glitch_strength = 1.0
 shader_parameter/matrix_density = 0.0350000016625
 shader_parameter/digital_speed = 2.8050001332375
 
