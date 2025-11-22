@@ -72,11 +72,11 @@ skeleton = NodePath("")
 [node name="OmniLight3D" type="OmniLight3D" parent="torch"]
 transform = Transform3D(1.63666, 0, 0, 0, 1.8622, 0, 0, 0, 1.52439, -0.00482066, 6.9764, -0.00257608)
 light_color = Color(1, 0.788235, 0.458824, 1)
-light_energy = 6.0
+light_energy = 4.5
 distance_fade_enabled = true
 distance_fade_begin = 2079.81
-omni_range = 25.0
-omni_attenuation = 0.63
+omni_range = 21.048
+omni_attenuation = 0.768
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="torch"]
 transform = Transform3D(1, -2.98023e-08, -5.5511014e-16, 2.98023e-08, 1, 2.6077e-08, -2.2204445e-16, -2.6077e-08, 1, -0.0192719, 6.9655, 0.00267804)
