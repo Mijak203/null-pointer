@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://7mw3va8c7cod"]
+[gd_scene load_steps=13 format=3 uid="uid://7mw3va8c7cod"]
 
 [ext_resource type="Script" uid="uid://qcad2hq0m6p" path="res://components/main_menu/settings.gd" id="1_m1m5k"]
 [ext_resource type="Shader" path="res://components/main_menu/routes.gdshader" id="2_mtnqj"]
+[ext_resource type="FontFile" uid="uid://vp118hqq6cvx" path="res://components/main_menu/Wallpoet-Regular.ttf" id="3_1sn1h"]
 [ext_resource type="StyleBox" uid="uid://cduyp3767f70t" path="res://components/main_menu/button.tres" id="3_bf7tp"]
 [ext_resource type="StyleBox" uid="uid://daaxj64sruu46" path="res://components/main_menu/buttonPressed.tres" id="4_1sn1h"]
 [ext_resource type="StyleBox" uid="uid://2e0ipyimyone" path="res://components/main_menu/buttonHover.tres" id="5_o7n5f"]
@@ -69,6 +70,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
 theme_override_font_sizes/font_size = 32
 text = "Resolution"
 
@@ -80,6 +82,7 @@ theme_override_constants/separation = 450
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bf7tp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n3ljr")
@@ -96,6 +99,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
 theme_override_font_sizes/font_size = 32
 text = "WINDOW MODE"
 
@@ -107,6 +111,7 @@ theme_override_constants/separation = 450
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bf7tp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1sn1h")
@@ -119,6 +124,7 @@ size_flags_stretch_ratio = 0.8
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1sn1h")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("3_bf7tp")
 theme_override_styles/pressed = ExtResource("4_1sn1h")
