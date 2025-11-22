@@ -15,19 +15,19 @@ var slides = [
 	},
 	{
 		"text": "STEROWANIE: KAMERA\n\nPerspektywa bywa myląca. Użyj [Q] i [E], aby obracać widok.\nCzasem to jedyny sposób, by dostrzec barierę lub ukrytą za nią drogę.",
-		"image": preload("res://assets/dexter.png")
+		"image": preload("res://components/main_menu/img/img4.png")
 	},
 	{
 		"text": "PRZESZKODA: FIREWALL\n\nCzerwone ściany to aktywne blokady firewall. Nie siłuj się z nimi.\nZnajdź i aktywuj PRZYCISK na planszy, by dezaktywować zabezpieczenia.",
-		"image": preload("res://assets/dexter.png")
+		"image": preload("res://components/main_menu/img/img5.png")
 	},
 	{
 		"text": "NARZĘDZIE: TELEPORT\n\nSektory są rozłączone wielką przepaścią?\nWejdź na relokator pamięci, aby natychmiast przeskoczyć barierę odległości bajtów.",
-		"image": preload("res://assets/dexter.png")
+		"image": preload("res://components/main_menu/img/img6.png")
 	},
 	{
 		"text": "ZADANIE GŁÓWNE: PRZEŁAM BARIERĘ\n\nMigoczące pola to GLITCH. System ich nie widzi, ale Ty tak.\nZnajdz przycisk i aktywój glitch, by przejść przez barierę danych.",
-		"image": preload("res://assets/dexter.png")
+		"image": preload("res://components/main_menu/img/img7.png")
 	},
 	{
 		"text": "STATUS: GOTOWY\n\nZnasz już zasady. Teraz czas je złamać.\nPrzełam barierę i uciekaj z systemu. Powodzenia, Anomalio.",
@@ -84,7 +84,7 @@ func update_ui_state():
 	
 	if current_index == slides.size() - 1:
 		next_btn.text = "START!"
-		next_btn.modulate = Color.GREEN
+		next_btn.modulate = Color.WHITE
 	else:
 		next_btn.text = ">"
 		next_btn.modulate = Color.WHITE

@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6dcysfk0sa1y"]
+[gd_scene load_steps=10 format=3 uid="uid://bbia87c1c33u5"]
 
 [ext_resource type="Script" uid="uid://vk26180lukoa" path="res://components/main_menu/tutorial.gd" id="1_7luft"]
+[ext_resource type="StyleBox" uid="uid://cduyp3767f70t" path="res://components/main_menu/button.tres" id="2_0g7e5"]
 [ext_resource type="Texture2D" uid="uid://bdco4psrxf4df" path="res://assets/dexter.png" id="2_0k3gk"]
 [ext_resource type="AudioStream" uid="uid://b75d46m05ucw4" path="res://assets/music/1 - Astro Reverie.mp3" id="3_83i3d"]
+[ext_resource type="FontFile" uid="uid://vp118hqq6cvx" path="res://components/main_menu/Wallpoet-Regular.ttf" id="3_kcssn"]
+[ext_resource type="StyleBox" uid="uid://daaxj64sruu46" path="res://components/main_menu/buttonPressed.tres" id="5_gxfky"]
+[ext_resource type="StyleBox" uid="uid://2e0ipyimyone" path="res://components/main_menu/buttonHover.tres" id="6_ddj1w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0k3gk"]
 font_size = 22
@@ -53,8 +57,13 @@ size_flags_stretch_ratio = 0.05
 
 [node name="PrevButton" type="Button" parent="VBoxContainer/Content"]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 42
+theme_override_fonts/font = ExtResource("3_kcssn")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_0g7e5")
+theme_override_styles/pressed = ExtResource("5_gxfky")
+theme_override_styles/hover = ExtResource("6_ddj1w")
 text = "<"
 
 [node name="Space2" type="Control" parent="VBoxContainer/Content"]
@@ -66,6 +75,7 @@ size_flags_stretch_ratio = 0.1
 [node name="Text" type="Label" parent="VBoxContainer/Content"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kcssn")
 label_settings = SubResource("LabelSettings_0k3gk")
 vertical_alignment = 1
 autowrap_mode = 3
@@ -91,9 +101,13 @@ size_flags_stretch_ratio = 0.1
 
 [node name="NextButton" type="Button" parent="VBoxContainer/Content"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 42
+theme_override_fonts/font = ExtResource("3_kcssn")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_0g7e5")
+theme_override_styles/pressed = ExtResource("5_gxfky")
+theme_override_styles/hover = ExtResource("6_ddj1w")
 text = ">"
 
 [node name="Space5" type="Control" parent="VBoxContainer/Content"]
@@ -118,6 +132,7 @@ size_flags_horizontal = 3
 
 [node name="PageIndicator" type="Label" parent="VBoxContainer/Navigation"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kcssn")
 text = "1 / 5"
 label_settings = SubResource("LabelSettings_83i3d")
 
@@ -128,7 +143,11 @@ size_flags_horizontal = 3
 [node name="SkipButton" type="Button" parent="VBoxContainer/Navigation"]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_kcssn")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_0g7e5")
+theme_override_styles/pressed = ExtResource("5_gxfky")
+theme_override_styles/hover = ExtResource("6_ddj1w")
 text = "SKIP (R)"
 alignment = 2
 

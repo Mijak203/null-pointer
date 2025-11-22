@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd5chvwb6sfo2"]
+[gd_scene load_steps=3 format=3 uid="uid://o0vtmafikvbt"]
+
+[ext_resource type="FontFile" uid="uid://vp118hqq6cvx" path="res://components/main_menu/Wallpoet-Regular.ttf" id="1_3f2kh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_atfc0"]
 font_size = 20
@@ -17,5 +19,6 @@ offset_right = -12.300049
 offset_bottom = -14.35498
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_3f2kh")
 text = "RESTART (R)"
 label_settings = SubResource("LabelSettings_atfc0")
