@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://sgon0j5tpurb"]
+[gd_scene load_steps=4 format=3 uid="uid://sgon0j5tpurb"]
 
 [ext_resource type="Script" uid="uid://bgef1jijkkiea" path="res://components/camera_rig/camera_rig.gd" id="1_f3eq1"]
+[ext_resource type="Shader" path="res://components/camera_rig/vhs.gdshader" id="2_fxsbe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f83a4"]
+shader = ExtResource("2_fxsbe")
+shader_parameter/resolution_x = 800
+shader_parameter/resolution_y = 600
+shader_parameter/color_bit_depth = 6
+shader_parameter/dither_strength = 0.02
+shader_parameter/jitter_amount = 0.004
+shader_parameter/jitter_speed = 1.2
+shader_parameter/jitter_frequency = 90.0
+shader_parameter/chromatic_aberration_strength = 0.0310000014725
+shader_parameter/vignette_strength = 0.5170000245575
+shader_parameter/vignette_radius = 1.8550000881125
 
 [node name="CameraRig" type="Node3D"]
 script = ExtResource("1_f3eq1")
@@ -10,3 +24,14 @@ transform = Transform3D(0.9659258, -0.10938165, 0.23456971, 0, 0.90630776, 0.422
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_f83a4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

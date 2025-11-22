@@ -101,13 +101,13 @@ func _physics_process(delta: float) -> void:
 	
 	var target_direction = Vector3.ZERO
 	
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("go_forward"):
 		target_direction = raw_forward
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("go_backward"):
 		target_direction = -raw_forward
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_just_pressed("go_right"):
 		target_direction = raw_right
-	elif Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_just_pressed("go_left"):
 		target_direction = -raw_right
 	
 	if target_direction != Vector3.ZERO:

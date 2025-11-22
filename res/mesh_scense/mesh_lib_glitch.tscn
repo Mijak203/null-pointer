@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://13phf163namp"]
+
+[ext_resource type="Shader" uid="uid://66w5u1andqpn" path="res://res/mesh_scense/glitch.gdshader" id="1_a1eya"]
+[ext_resource type="Texture2D" uid="uid://cnm58bhcyt58h" path="res://res/sprites/grassBlock.png" id="2_od5v4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a1eya"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_od5v4"]
+render_priority = 0
+shader = ExtResource("1_a1eya")
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_a1eya")
+shader_parameter/tint_color = Color(0.3329893, 0.9865654, 0, 0.7490196)
+shader_parameter/matrix_color = Color(0.8609541, 0, 0.36918566, 0.6117647)
+shader_parameter/matrix_texture = ExtResource("2_od5v4")
+shader_parameter/text_scale = -0.515
+shader_parameter/matrix_strength = 0.8750000415625
+shader_parameter/bug_color = Color(1, 0, 0.93333334, 1)
+shader_parameter/glitch_intensity = 0.4800000228
+shader_parameter/glitch_speed = 4.46
+shader_parameter/block_size = 0.66
+shader_parameter/emission_strength = 10.0
+shader_parameter/transparency_alpha = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ma6l1"]
+material = SubResource("ShaderMaterial_od5v4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a1ian"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07itl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ten7p"]
+material = SubResource("StandardMaterial3D_07itl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6swl"]
+
+[node name="Mesh_lib" type="Node3D"]
+
+[node name="Test" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ma6l1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Test"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test/StaticBody3D"]
+shape = SubResource("BoxShape3D_a1ian")
+
+[node name="Trans" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_ten7p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Trans"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trans/StaticBody3D"]
+shape = SubResource("BoxShape3D_w6swl")

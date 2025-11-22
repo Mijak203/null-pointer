@@ -2,24 +2,36 @@ extends Control
 
 var slides = [
 	{
-		"text": "Witaj w świecie Null Zero! Jesteś zagubionym klockiem w cyfrowej otchłani.",
+		"text": "KONTEKST: BŁĄD KRYTYCZNY\n\nJesteś anomalią uwięzioną za cyfrową zasłoną. \nTwoje zadanie: przełamać barierę systemu i uniknąć usunięcia.",
+		"image": preload("res://components/main_menu/img/img1.png")
+	},
+	{
+		"text": "CEL: PORT WYJŚCIA\n\nDotrzyj do Portu Wyjścia – to Twój 'Backdoor'. Zrób to zanim zostaniesz usunięty!",
+		"image": preload("res://components/main_menu/img/img2.png")
+	},
+	{
+		"text": "STEROWANIE: RUCH\n\nUżyj [WASD] lub STRZAŁEK, by manewrować po sektorach pamięci.\nKażdy ruch musi być pewny. Krawędź mapy to granica danych – nie spadnij.",
+		"image": preload("res://components/main_menu/img/img3.png")
+	},
+	{
+		"text": "STEROWANIE: KAMERA\n\nPerspektywa bywa myląca. Użyj [Q] i [E], aby obracać widok.\nCzasem to jedyny sposób, by dostrzec barierę lub ukrytą za nią drogę.",
 		"image": preload("res://assets/dexter.png")
 	},
 	{
-		"text": "Twoim celem jest wpadnięcie do kwadratowej dziury. To Twój portal do domu.",
-		"image": preload("res://assets/dexter.png") 
+		"text": "PRZESZKODA: FIREWALL\n\nCzerwone ściany to aktywne blokady firewall. Nie siłuj się z nimi.\nZnajdź i aktywuj PRZYCISK na planszy, by dezaktywować zabezpieczenia.",
+		"image": preload("res://assets/dexter.png")
 	},
 	{
-		"text": "STEROWANIE:\nUżywaj strzałek lub WASD, aby turlać klocek.",
-		"image": preload("res://assets/dexter.png") 
+		"text": "NARZĘDZIE: TELEPORT\n\nSektory są rozłączone wielką przepaścią?\nWejdź na relokator pamięci, aby natychmiast przeskoczyć barierę odległości bajtów.",
+		"image": preload("res://assets/dexter.png")
 	},
 	{
-		"text": "Uważaj na krawędzie! Jeden fałszywy ruch i spadasz w nicość.",
-		"image": preload("res://assets/dexter.png") 
+		"text": "ZADANIE GŁÓWNE: PRZEŁAM BARIERĘ\n\nMigoczące pola to GLITCH. System ich nie widzi, ale Ty tak.\nZnajdz przycisk i aktywój glitch, by przejść przez barierę danych.",
+		"image": preload("res://assets/dexter.png")
 	},
 	{
-		"text": "Powodzenia! Niech fizyka będzie z Tobą.",
-		"image": preload("res://assets/dexter.png") 
+		"text": "STATUS: GOTOWY\n\nZnasz już zasady. Teraz czas je złamać.\nPrzełam barierę i uciekaj z systemu. Powodzenia, Anomalio.",
+		"image": preload("res://assets/dexter.png")
 	}
 ]
 
