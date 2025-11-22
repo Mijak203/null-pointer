@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://xaa368px3g5v"]
+[gd_scene load_steps=20 format=3 uid="uid://ery8xgpi3fa1"]
 
-[ext_resource type="PackedScene" uid="uid://coq5ax1e4mv45" path="res://ui/ui.tscn" id="1_ofchu"]
+[ext_resource type="PackedScene" path="res://ui/ui.tscn" id="1_ofchu"]
 [ext_resource type="PackedScene" uid="uid://di70uixp7o0gy" path="res://entities/player/cube.tscn" id="2_jq78i"]
-[ext_resource type="Shader" uid="uid://cx11i2oumk8jr" path="res://res/sky.gdshader" id="3_lsnkt"]
+[ext_resource type="Shader" path="res://res/sky.gdshader" id="3_lsnkt"]
 [ext_resource type="MeshLibrary" uid="uid://bmn0cu5sy8a7" path="res://res/meshes/main_mesh_lib.tres" id="4_wj73x"]
-[ext_resource type="PackedScene" uid="uid://c267degr5g0w2" path="res://res/water_plane.tscn" id="5_0unm6"]
+[ext_resource type="PackedScene" path="res://res/water_plane.tscn" id="5_0unm6"]
 [ext_resource type="PackedScene" uid="uid://sgon0j5tpurb" path="res://components/camera_rig/camera_rig.tscn" id="6_q42ux"]
 [ext_resource type="PackedScene" uid="uid://dmm672nielw7e" path="res://components/goal_area/goal_area.tscn" id="7_wi0qq"]
 [ext_resource type="PackedScene" uid="uid://c5rrantbnpih0" path="res://components/firewall/firewall.tscn" id="8_s3q8p"]
@@ -69,7 +69,7 @@ glow_intensity = 0.0
 adjustment_enabled = true
 adjustment_saturation = 1.5
 
-[node name="Level_3" type="Node3D"]
+[node name="Level_4" type="Node3D"]
 
 [node name="UI" parent="." instance=ExtResource("1_ofchu")]
 
